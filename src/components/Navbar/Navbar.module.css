@@ -1,0 +1,10 @@
+.navbar {
+  height: 100%;
+  width: 100%;
+  background-color: cadetblue;
+}
+
+.item {
+  color: antiquewhite;
+  margin-left: 5px;
+}
