@@ -1,13 +1,16 @@
 import React from 'react';
+import styles from './Navbar.module.css';
 
 const Navbar = () => {
   return (
-    <div>
-      <div>Profile</div>
-      <div>Messages</div>
-      <div>News</div>
-      <div>Music</div>
-      <div>People</div>
+    <div className={styles.navbar}>
+      <div className={styles.item}>
+        <div>Profile</div>
+        <div>Messages</div>
+        <div>News</div>
+        <div>Music</div>
+        <div>People</div>
+      </div>
     </div>
   )
 }

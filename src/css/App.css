@@ -1,4 +1,4 @@
-.app-wrapper {
+.app_wrapper {
   min-height: 100vh;
   display: grid;
   grid-template-areas: "header header header" "navbar main sidebar" "footer footer footer";
@@ -9,38 +9,21 @@
 }
 
 .header {
-  width: 100%;
-  place-items: center;
   grid-area: header;
-  background-color: steelblue;
-  text-align: center;
-}
-
-.header img {
-  width: 50px;
 }
 
 .navbar {
   grid-area: navbar;
-  background-color: cadetblue;
 }
 
 .main {
   grid-area: main;
-  height: 100%;
-  width: 100%;
-  background-color: thistle;
 }
 
 .sidebar {
   grid-area: sidebar;
-  background-color: cadetblue;
 }
 
 .footer {
-  width: 100%;
-  place-items: center;
   grid-area: footer;
-  background-color: steelblue;
-  text-align: center;
 }

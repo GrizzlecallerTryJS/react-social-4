@@ -1,0 +1,11 @@
+.header {
+  height: 100%;
+  width: 100%;
+  place-items: center;
+  background-color: steelblue;
+  text-align: center;
+}
+
+.header img {
+  width: 50px;
+}
