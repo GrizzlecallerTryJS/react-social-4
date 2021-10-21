@@ -1,18 +1,15 @@
 import React from 'react';
 
 const Sidebar = () => {
-    return (
-        <div>
-            <div>Sidebar</div>
-            <div>
-                <div>Profile</div>
-                <div>Messages</div>
-                <div>News</div>
-                <div>Music</div>
-                <div>People</div>
-            </div>
-        </div>
-    )
+  return (
+    <div>
+      <div>smth1</div>
+      <div>smth2</div>
+      <div>smth3</div>
+      <div>smth4</div>
+      <div>smth5</div>
+    </div>
+  )
 }
 
 export default Sidebar;
