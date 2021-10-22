@@ -20,9 +20,9 @@ const App = () => {
       <div className="footer">
         <Footer />
       </div>
-      <dib className="sidebar">
+      <div className="sidebar">
         <Sidebar />
-      </dib>
+      </div>
     </div>
   );
 };
