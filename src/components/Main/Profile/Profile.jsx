@@ -5,8 +5,8 @@ import NewPost from "./Post_modules/NewPost/NewPost";
 
 const Main = () => {
   return (
-    <div className={styles.main}>
-      <div>Main</div>
+    <div>
+      <div>Profile</div>
       <div className={styles.about}>
         avatar + desc
         <div>
@@ -16,9 +16,15 @@ const Main = () => {
           />
         </div>
       </div>
-      <NewPost />
-      <Post message={`first`} />
-      <Post message={`second`} />
+      <div>
+        <NewPost />
+      </div>
+      <div>
+        <Post message={`first`} />
+      </div>
+      <div>
+        <Post message={`second`} />
+      </div>
     </div>
   );
 };

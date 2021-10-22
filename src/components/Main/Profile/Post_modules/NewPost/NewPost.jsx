@@ -1,9 +1,8 @@
 import React from "react";
-import styles from "./NewPost.module.css";
 
 const NewPost = () => {
   return (
-    <div className={styles.new_post}>
+    <div>
       <p>New post</p>
       <textarea name="newPost"></textarea>
     </div>
