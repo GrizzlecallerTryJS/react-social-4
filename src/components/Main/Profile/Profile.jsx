@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Profile.module.css';
+import Post from './Post/Post';
 
 const Main = () => {
   return (
@@ -13,18 +14,7 @@ const Main = () => {
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv1vgdYWHDUkyYYYxV4RV78Q4AHDtagK2GRQ&usqp=CAU" alt="default avatar image" />
         </div>
       </div>
-      <div className={styles.posts}>
-        my posts
-        <div>
-          new post
-        </div>
-        <div>
-          post1
-        </div>
-        <div>
-          post2
-        </div>
-      </div>
+      <Post />
     </div>
   )
 }
