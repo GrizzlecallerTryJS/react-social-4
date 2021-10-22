@@ -17,8 +17,8 @@ const Main = () => {
         </div>
       </div>
       <NewPost />
-      <Post />
-      <Post />
+      <Post message={`first`} />
+      <Post message={`second`} />
     </div>
   );
 };

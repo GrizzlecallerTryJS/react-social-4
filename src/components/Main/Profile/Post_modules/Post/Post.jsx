@@ -1,10 +1,10 @@
 import React from "react";
 import styles from "./Post.module.css";
 
-const Post = () => {
+const Post = (props) => {
   return (
     <div className={styles.posts}>
-      <div>post1</div>
+      <div>{props.message}</div>
     </div>
   );
 };
