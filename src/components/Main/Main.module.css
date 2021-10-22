@@ -1,0 +1,9 @@
+.main {
+  height: 100%;
+  width: 100%;
+  background-color: thistle;
+}
+
+.content {
+  margin-left: 5px;
+}

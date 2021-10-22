@@ -1,7 +1,7 @@
 import "./css/App.css";
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
-import Main from "./components/Main/Profile/Profile";
+import Main from "./components/Main/Main";
 import Footer from "./components/Footer/Footer";
 import Sidebar from "./components/Sidebar/Sidebar";
 
