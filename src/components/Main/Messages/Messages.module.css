@@ -1,3 +1,14 @@
-.authors {
-  color: dodgerblue;
+.main {
+  display: grid;
+  grid-template-areas: "dialog_item messages";
+  grid-template-columns: 30% 70%;
+  grid-template-rows: auto;
+}
+
+.dialog_item {
+  grid-area: dialog_item;
+}
+
+.messages_item {
+  grid-area: messages;
 }
