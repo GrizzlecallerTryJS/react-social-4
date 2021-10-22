@@ -1,5 +1,5 @@
-import React from 'react';
-import styles from './Navbar.module.css';
+import React from "react";
+import styles from "./Navbar.module.css";
 
 const Navbar = () => {
   return (
@@ -12,7 +12,7 @@ const Navbar = () => {
         <div>People</div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Navbar;
