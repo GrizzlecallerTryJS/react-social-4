@@ -1,12 +1,12 @@
 import React from "react";
-import styles from "./Messages.module.css";
+import styles from "./Dialogs.module.css";
 import DialogItem from "./DialogItem/DialogItem";
 import MessageItem from "./MessageItem/MessageItem";
 
-const Messages = () => {
+const Dialogs = () => {
   return (
     <div>
-      <div>Messages</div>
+      <div>Dialogs</div>
       <div className={styles.main}>
         <div className={styles.dialog_item}>
           <DialogItem />
@@ -19,4 +19,4 @@ const Messages = () => {
   );
 };
 
-export default Messages;
+export default Dialogs;
