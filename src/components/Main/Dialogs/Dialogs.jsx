@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Dialogs.module.css";
-import DialogItem from "./DialogItem/DialogItem";
+import Dialogs_all from "./DialogItem/Dialogs_all";
 import MessageItem from "./MessageItem/MessageItem";
 
 const Dialogs = () => {
@@ -9,7 +9,7 @@ const Dialogs = () => {
       <div>Dialogs</div>
       <div className={styles.main}>
         <div className={styles.dialog_item}>
-          <DialogItem />
+          <Dialogs_all />
         </div>
         <div className={styles.messages_item}>
           <MessageItem />
