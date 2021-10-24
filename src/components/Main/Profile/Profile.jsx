@@ -2,14 +2,14 @@ import React from "react";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import Posts from "./Posts/Posts";
 
-const Main = () => {
+const Profile = (props) => {
   return (
     <div>
       <div>Profile</div>
       <ProfileInfo />
-      <Posts />
+      <Posts postData={props.postData} />
     </div>
   );
 };
 
-export default Main;
+export default Profile;

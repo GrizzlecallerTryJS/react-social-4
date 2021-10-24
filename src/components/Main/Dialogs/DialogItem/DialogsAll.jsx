@@ -16,7 +16,8 @@ const DialogsItem = (props) => {
   );
 };
 
-const Dialogs_all = (props) => {
+const DialogsAll = (props) => {
+  debugger;
   return (
     <div className={styles.dialog_item}>
       {props.dialogs.map((data) => (
@@ -26,4 +27,4 @@ const Dialogs_all = (props) => {
   );
 };
 
-export default Dialogs_all;
+export default DialogsAll;

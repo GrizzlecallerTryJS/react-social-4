@@ -7,15 +7,40 @@ import Music from "./Music/Music";
 import News from "./News/News";
 import People from "./People/People";
 
-const Main = () => {
+const Main = (props) => {
+  const ProfileComponent = () => {
+    return <Profile postData={props.postData} />;
+  };
+
+  const DialogsComponent = () => {
+    return (
+      <Dialogs
+        dialogsData={props.dialogsData}
+        messagesData={props.messagesData}
+      />
+    );
+  };
+
+  const NewsComponent = () => {
+    return <News />;
+  };
+
+  const MusicComponent = () => {
+    return <Music />;
+  };
+
+  const PeopleComponent = () => {
+    return <People />;
+  };
+
   return (
     <div className={styles.main}>
       <div className={styles.content}>
-        <Route path={`/profile`} component={Profile} />
-        <Route path={`/dialogs`} component={Dialogs} />
-        <Route path={`/news`} component={News} />
-        <Route path={`/music`} component={Music} />
-        <Route path={`/people`} component={People} />
+        <Route path={`/profile`} component={ProfileComponent} />
+        <Route path={`/dialogs`} component={DialogsComponent} />
+        <Route path={`/news`} component={NewsComponent} />
+        <Route path={`/music`} component={MusicComponent} />
+        <Route path={`/people`} component={PeopleComponent} />
       </div>
     </div>
   );
