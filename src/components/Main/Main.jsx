@@ -38,7 +38,7 @@ const Main = (props) => {
       <div className={styles.content}>
         <Route path={`/profile`} component={ProfileComponent} />
         <Route path={`/dialogs`} component={DialogsComponent} />
-        <Route path={`/profile`} component={NewsComponent} />
+        <Route path={`/news`} component={NewsComponent} />
         <Route path={`/music`} component={MusicComponent} />
         <Route path={`/people`} component={PeopleComponent} />
       </div>
