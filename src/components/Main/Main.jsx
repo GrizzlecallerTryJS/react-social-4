@@ -36,11 +36,11 @@ const Main = (props) => {
   return (
     <div className={styles.main}>
       <div className={styles.content}>
-        <Route path={`/profile`} component={ProfileComponent} />
-        <Route path={`/dialogs`} component={DialogsComponent} />
-        <Route path={`/news`} component={NewsComponent} />
-        <Route path={`/music`} component={MusicComponent} />
-        <Route path={`/people`} component={PeopleComponent} />
+        <Route path={`/profile`} render={ProfileComponent} />
+        <Route path={`/dialogs`} render={DialogsComponent} />
+        <Route path={`/news`} render={NewsComponent} />
+        <Route path={`/music`} render={MusicComponent} />
+        <Route path={`/people`} render={PeopleComponent} />
       </div>
     </div>
   );
