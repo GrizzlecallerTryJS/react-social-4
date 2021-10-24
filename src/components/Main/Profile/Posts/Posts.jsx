@@ -2,17 +2,11 @@ import React from "react";
 import NewPost from "./PostComponents/NewPost/NewPost";
 import CompletedPost from "./PostComponents/CompletedPost/CompletedPost";
 
-const postData = [
-  { message: `first` },
-  { message: `second` },
-  { message: "lorem" },
-];
-
-const Posts = () => {
+const Posts = (props) => {
   return (
     <div>
       <NewPost />
-      <CompletedPost data={postData} />
+      <CompletedPost postData={props.postData} />
     </div>
   );
 };

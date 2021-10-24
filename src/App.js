@@ -5,7 +5,7 @@ import Main from "./components/Main/Main";
 import Footer from "./components/Footer/Footer";
 import Sidebar from "./components/Sidebar/Sidebar";
 
-const App = () => {
+const App = (props) => {
   return (
     <div className="app_wrapper">
       <div className="header">
@@ -15,7 +15,7 @@ const App = () => {
         <Navbar />
       </div>
       <div className="main">
-        <Main />
+        <Main {...props} />
       </div>
       <div className="footer">
         <Footer />

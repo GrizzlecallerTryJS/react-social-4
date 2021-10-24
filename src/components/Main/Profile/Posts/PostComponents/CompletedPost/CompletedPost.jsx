@@ -3,7 +3,7 @@ import React from "react";
 const CompletedPost = (props) => {
   return (
     <div>
-      {props.data.map((data) => (
+      {props.postData.map((data) => (
         <div>{data.message}</div>
       ))}
     </div>
