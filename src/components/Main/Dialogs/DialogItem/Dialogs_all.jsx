@@ -16,14 +16,12 @@ const DialogsItem = (props) => {
   );
 };
 
-const Dialogs_all = () => {
+const Dialogs_all = (props) => {
   return (
     <div className={styles.dialog_item}>
-      <DialogsItem name={`qw`} id={`1`} />
-      <DialogsItem name={`we`} id={`2`} />
-      <DialogsItem name={`er`} id={`3`} />
-      <DialogsItem name={`rt`} id={`4`} />
-      <DialogsItem name={`ty`} id={`5`} />
+      {props.dialogs.map((data) => (
+        <DialogsItem key={data.id} name={data.name} id={data.id} />
+      ))}
     </div>
   );
 };

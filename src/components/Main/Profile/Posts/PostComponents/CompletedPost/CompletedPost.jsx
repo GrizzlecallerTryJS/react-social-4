@@ -3,7 +3,9 @@ import React from "react";
 const CompletedPost = (props) => {
   return (
     <div>
-      <div>{props.message}</div>
+      {props.data.map((data) => (
+        <div>{data.message}</div>
+      ))}
     </div>
   );
 };
