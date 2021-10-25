@@ -13,7 +13,9 @@ const NewPost = () => {
       <p>New post</p>
       <div>
         <textarea ref={textAreaRef} name="newPost"></textarea>
-        <button onClick={addButtonAction}>addPost</button>
+        <div>
+          <button onClick={addButtonAction}>addPost</button>
+        </div>
       </div>
     </div>
   );
