@@ -9,16 +9,11 @@ import People from "./People/People";
 
 const Main = (props) => {
   const ProfileComponent = () => {
-    return <Profile postData={props.postData} />;
+    return <Profile profileState={props.state.profilePage} />;
   };
 
   const DialogsComponent = () => {
-    return (
-      <Dialogs
-        dialogsData={props.dialogsData}
-        messagesData={props.messagesData}
-      />
-    );
+    return <Dialogs dialogsState={props.state.dialogsPage} />;
   };
 
   const NewsComponent = () => {

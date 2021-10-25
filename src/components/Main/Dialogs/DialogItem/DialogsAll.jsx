@@ -17,7 +17,6 @@ const DialogsItem = (props) => {
 };
 
 const DialogsAll = (props) => {
-  debugger;
   return (
     <div className={styles.dialog_item}>
       {props.dialogs.map((data) => (
