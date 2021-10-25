@@ -1,3 +1,5 @@
+import rerender from "../rerender";
+
 let state = {
   profilePage: {
     postData: [
@@ -56,11 +58,12 @@ export const addPostFunc = (
   postData = state.profilePage.postData
 ) => {
   let postObject = {
-    message: postMessage,
     id: postData.length + 1,
+    message: postMessage,
     likesCount: 0,
   };
   postData.push(postObject);
+  rerender(state, addPostFunc);
 };
 
 export default state;

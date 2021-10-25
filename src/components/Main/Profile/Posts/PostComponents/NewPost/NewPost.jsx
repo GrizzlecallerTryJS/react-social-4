@@ -6,6 +6,7 @@ const NewPost = (props) => {
   const addButtonAction = () => {
     let text = textAreaRef.current.value;
     props.addPostFunc(text);
+    textAreaRef.current.value = ``;
   };
 
   return (
