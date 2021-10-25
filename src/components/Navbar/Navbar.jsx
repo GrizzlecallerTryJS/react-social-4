@@ -9,6 +9,7 @@ const Navbar = (props) => {
         {props.navbarState.title.map((title) => (
           <div>
             <NavLink
+              key={title.id}
               to={`/${title.name.toLowerCase()}`}
               activeClassName={styles.active}
             >

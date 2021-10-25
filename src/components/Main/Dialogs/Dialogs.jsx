@@ -5,7 +5,6 @@ import MessageItem from "./MessageItem/MessageItem";
 import MessageTextArea from "./MessageTextArea/MessageTextArea";
 
 const Dialogs = (props) => {
-  debugger;
   return (
     <div>
       <div>Dialogs</div>

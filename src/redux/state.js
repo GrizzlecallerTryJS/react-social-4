@@ -1,9 +1,9 @@
 let state = {
   profilePage: {
     postData: [
-      { message: `first` },
-      { message: `second` },
-      { message: "lorem" },
+      { id: 1, message: `first`, likesCount: 4 },
+      { id: 2, message: `second`, likesCount: 6 },
+      { id: 3, message: "lorem", likesCount: 2 },
     ],
   },
   dialogsPage: {
@@ -32,11 +32,11 @@ let state = {
   navbarState: {
     title: [
       { name: `Profile`, id: 1 },
-      { name: `Dialogs`, id: 1 },
-      { name: `News`, id: 1 },
-      { name: `Music`, id: 1 },
-      { name: `People`, id: 1 },
-      { name: `Friends`, id: 1 },
+      { name: `Dialogs`, id: 2 },
+      { name: `News`, id: 3 },
+      { name: `Music`, id: 4 },
+      { name: `People`, id: 5 },
+      { name: `Friends`, id: 6 },
     ],
     actualFriends: [
       {
@@ -49,6 +49,18 @@ let state = {
       },
     ],
   },
+};
+
+export const addPostFunc = (
+  postMessage,
+  postData = state.profilePage.postData
+) => {
+  let postObject = {
+    message: postMessage,
+    id: postData.length + 1,
+    likesCount: 0,
+  };
+  postData.push(postObject);
 };
 
 export default state;

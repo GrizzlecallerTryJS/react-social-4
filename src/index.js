@@ -4,12 +4,12 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router } from "react-router-dom";
-import state from "./redux/state";
+import state, { addPostFunc } from "./redux/state";
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <App state={state} />
+      <App state={state} addPostFunc={addPostFunc} />
     </Router>
   </React.StrictMode>,
   document.getElementById("root")
