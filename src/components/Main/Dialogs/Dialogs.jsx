@@ -9,10 +9,10 @@ const Dialogs = (props) => {
       <div>Dialogs</div>
       <div className={styles.main}>
         <div className={styles.dialog_item}>
-          <DialogsAll dialogs={props.dialogsData} />
+          <DialogsAll dialogs={props.dialogsState.dialogsData} />
         </div>
         <div className={styles.messages_item}>
-          <MessageItem messages={props.messagesData} />
+          <MessageItem messages={props.dialogsState.messagesData} />
         </div>
       </div>
     </div>
