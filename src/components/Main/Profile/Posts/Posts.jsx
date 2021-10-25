@@ -5,7 +5,7 @@ import CompletedPost from "./PostComponents/CompletedPost/CompletedPost";
 const Posts = (props) => {
   return (
     <div>
-      <NewPost />
+      <NewPost addPostFunc={props.addPostFunc} />
       <CompletedPost postData={props.postData} />
     </div>
   );

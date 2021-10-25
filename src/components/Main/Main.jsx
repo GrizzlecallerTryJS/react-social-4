@@ -8,9 +8,13 @@ import News from "./News/News";
 import People from "./People/People";
 
 const Main = (props) => {
-  debugger;
   const ProfileComponent = () => {
-    return <Profile profileState={props.profileState} />;
+    return (
+      <Profile
+        profileState={props.profileState}
+        addPostFunc={props.addPostFunc}
+      />
+    );
   };
 
   const DialogsComponent = () => {

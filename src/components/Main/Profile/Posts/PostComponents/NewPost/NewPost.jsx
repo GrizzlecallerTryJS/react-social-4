@@ -1,11 +1,11 @@
 import React from "react";
 
-const NewPost = () => {
+const NewPost = (props) => {
   let textAreaRef = React.createRef();
 
   const addButtonAction = () => {
     let text = textAreaRef.current.value;
-    alert(text);
+    props.addPostFunc(text);
   };
 
   return (
