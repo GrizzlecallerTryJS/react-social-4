@@ -29,6 +29,26 @@ let state = {
       { message: `Lorem ipsum dolor sit.`, id: 5 },
     ],
   },
+  navbarState: {
+    title: [
+      { name: `Profile`, id: 1 },
+      { name: `Dialogs`, id: 1 },
+      { name: `News`, id: 1 },
+      { name: `Music`, id: 1 },
+      { name: `People`, id: 1 },
+      { name: `Friends`, id: 1 },
+    ],
+    actualFriends: [
+      {
+        name: `Vasya`,
+        id: 1,
+      },
+      {
+        name: `Kolya`,
+        id: 2,
+      },
+    ],
+  },
 };
 
 export default state;

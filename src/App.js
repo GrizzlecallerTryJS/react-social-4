@@ -12,10 +12,13 @@ const App = (props) => {
         <Header />
       </div>
       <div className="navbar">
-        <Navbar />
+        <Navbar navbarState={props.state.navbarState} />
       </div>
       <div className="main">
-        <Main {...props} />
+        <Main
+          profileState={props.state.profilePage}
+          dialogsState={props.state.dialogsPage}
+        />
       </div>
       <div className="footer">
         <Footer />

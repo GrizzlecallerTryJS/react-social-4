@@ -4,6 +4,7 @@ import DialogsAll from "./DialogItem/DialogsAll";
 import MessageItem from "./MessageItem/MessageItem";
 
 const Dialogs = (props) => {
+  debugger;
   return (
     <div>
       <div>Dialogs</div>
