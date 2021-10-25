@@ -1,10 +1,22 @@
 import React from "react";
 
 const NewPost = () => {
+  let textAreaRef = React.createRef();
+
+  const addButtonAction = () => {
+    let text = textAreaRef.current.value;
+    alert(text);
+  };
+
   return (
     <div>
       <p>New post</p>
-      <textarea name="newPost"></textarea>
+      <div>
+        <textarea ref={textAreaRef} name="newPost"></textarea>
+        <div>
+          <button onClick={addButtonAction}>addPost</button>
+        </div>
+      </div>
     </div>
   );
 };
