@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Dialogs.module.css";
 import DialogsAll from "./DialogItem/DialogsAll";
 import MessageItem from "./MessageItem/MessageItem";
+import MessageTextArea from "./MessageTextArea/MessageTextArea";
 
 const Dialogs = (props) => {
   debugger;
@@ -13,7 +14,12 @@ const Dialogs = (props) => {
           <DialogsAll dialogs={props.dialogsState.dialogsData} />
         </div>
         <div className={styles.messages_item}>
-          <MessageItem messages={props.dialogsState.messagesData} />
+          <div>
+            <MessageItem messages={props.dialogsState.messagesData} />
+          </div>
+          <div>
+            <MessageTextArea />
+          </div>
         </div>
       </div>
     </div>
