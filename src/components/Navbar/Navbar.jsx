@@ -8,7 +8,10 @@ const Navbar = (props) => {
       <div className={styles.item}>
         {props.navbarState.title.map((title) => (
           <div>
-            <NavLink to={`/${title.name}`} activeClassName={styles.active}>
+            <NavLink
+              to={`/${title.name.toLowerCase()}`}
+              activeClassName={styles.active}
+            >
               {title.name}
             </NavLink>
           </div>
