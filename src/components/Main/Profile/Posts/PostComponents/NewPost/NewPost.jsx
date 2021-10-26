@@ -20,9 +20,12 @@ const NewPost = (props) => {
     <div>
       <p>New post</p>
       <div>
-        <textarea ref={textAreaRef} onChange={onChangeAction} name="newPost">
-          {textMessage}
-        </textarea>
+        <textarea
+          ref={textAreaRef}
+          onChange={onChangeAction}
+          name="newPost"
+          value={textMessage}
+        />
         <div>
           <button onClick={addPostButtonAction}>addPost</button>
         </div>
