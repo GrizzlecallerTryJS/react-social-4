@@ -1,9 +1,20 @@
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import rerender from "./rerender";
-import state, { addPostFunc, currentNewPostTextAreaValue } from "./redux/state";
+import state, {
+  addMessageFunc,
+  addPostFunc,
+  currentNewMessageTextAreaValue,
+  currentNewPostTextAreaValue,
+} from "./redux/state";
 
-rerender(state, addPostFunc, currentNewPostTextAreaValue);
+rerender(
+  state,
+  addPostFunc,
+  currentNewPostTextAreaValue,
+  addMessageFunc,
+  currentNewMessageTextAreaValue
+);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
