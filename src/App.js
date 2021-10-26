@@ -19,6 +19,7 @@ const App = (props) => {
           profileState={props.state.profilePage}
           dialogsState={props.state.dialogsPage}
           addPostFunc={props.addPostFunc}
+          addPostTemp={props.addPostTemp}
         />
       </div>
       <div className="footer">

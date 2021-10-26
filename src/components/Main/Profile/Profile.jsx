@@ -10,6 +10,7 @@ const Profile = (props) => {
       <Posts
         postData={props.profileState.postData}
         addPostFunc={props.addPostFunc}
+        addPostTemp={props.addPostTemp}
       />
     </div>
   );
