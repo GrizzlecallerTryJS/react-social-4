@@ -1,14 +1,10 @@
 import React from "react";
 
 const NewPost = (props) => {
-  debugger;
-  let textMessage = props.textAreaValue.message;
   let textAreaRef = React.createRef();
 
   const addPostButtonAction = () => {
     props.addPostFunc();
-    textAreaRef.current.value = ``;
-    props.currentNewPostTextAreaValue("");
   };
 
   const onChangeAction = () => {
@@ -24,7 +20,7 @@ const NewPost = (props) => {
           ref={textAreaRef}
           onChange={onChangeAction}
           name="newPost"
-          value={textMessage}
+          value={props.textAreaValue.message}
         />
         <div>
           <button onClick={addPostButtonAction}>addPost</button>
