@@ -59,7 +59,7 @@ let state = {
 
 export const currentNewPostTextAreaValue = (text) => {
   state.profilePage.tempPostData.message = text;
-  rerender();
+  rerender(state);
 };
 
 export const addPostFunc = () => {
@@ -71,7 +71,7 @@ export const addPostFunc = () => {
     };
     state.profilePage.postData.push(postObject);
     state.profilePage.tempPostData.message = "";
-    rerender();
+    rerender(state);
   }
 };
 
@@ -79,7 +79,7 @@ export const addPostFunc = () => {
 
 export const currentNewMessageTextAreaValue = (text) => {
   state.dialogsPage.tempMessageData.message = text;
-  rerender();
+  rerender(state);
 };
 
 export const addMessageFunc = () => {
@@ -90,7 +90,7 @@ export const addMessageFunc = () => {
     };
     state.dialogsPage.messagesData.push(postObject);
     state.dialogsPage.tempMessageData.message = "";
-    rerender();
+    rerender(state);
   }
 };
 

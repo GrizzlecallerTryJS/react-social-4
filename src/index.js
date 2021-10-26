@@ -12,7 +12,7 @@ import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import App from "./App";
 
-const rerender = () => {
+const rerender = (state) => {
   ReactDOM.render(
     <Router>
       <App
@@ -27,7 +27,7 @@ const rerender = () => {
   );
 };
 
-rerender();
+rerender(state);
 
 subscribe(rerender);
 
