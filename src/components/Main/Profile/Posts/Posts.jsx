@@ -7,9 +7,9 @@ const Posts = (props) => {
     <div>
       <NewPost
         addPostFunc={props.addPostFunc}
-        addPostTemp={props.addPostTemp}
+        currentNewPostTextAreaValue={props.currentNewPostTextAreaValue}
       />
-      <CompletedPost postData={props.postData} />
+      <CompletedPost postData={props.profileState.postData} />
     </div>
   );
 };

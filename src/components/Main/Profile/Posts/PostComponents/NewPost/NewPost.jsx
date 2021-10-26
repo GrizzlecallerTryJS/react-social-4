@@ -3,14 +3,15 @@ import React from "react";
 const NewPost = (props) => {
   let textAreaRef = React.createRef();
 
-  const addButtonAction = () => {
+  const addPostButtonAction = () => {
     props.addPostFunc();
     textAreaRef.current.value = ``;
+    props.currentNewPostTextAreaValue("");
   };
 
   const onChangeAction = () => {
     let text = textAreaRef.current.value;
-    props.addPostTemp(text);
+    props.currentNewPostTextAreaValue(text);
   };
 
   return (
@@ -23,7 +24,7 @@ const NewPost = (props) => {
           name="newPost"
         ></textarea>
         <div>
-          <button onClick={addButtonAction}>addPost</button>
+          <button onClick={addPostButtonAction}>addPost</button>
         </div>
       </div>
     </div>

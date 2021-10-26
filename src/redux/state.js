@@ -54,7 +54,7 @@ let state = {
   },
 };
 
-export const addPostTemp = (text) => {
+export const currentNewPostTextAreaValue = (text) => {
   state.profilePage.tempPostData.message = text;
 };
 
@@ -68,7 +68,7 @@ export const addPostFunc = (
     likesCount: 0,
   };
   postData.push(postObject);
-  rerender(state, addPostFunc, addPostTemp);
+  rerender(state, addPostFunc, currentNewPostTextAreaValue);
 };
 
 export default state;

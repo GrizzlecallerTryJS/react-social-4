@@ -8,9 +8,9 @@ const Profile = (props) => {
       <div>Profile</div>
       <ProfileInfo />
       <Posts
-        postData={props.profileState.postData}
+        profileState={props.profileState}
         addPostFunc={props.addPostFunc}
-        addPostTemp={props.addPostTemp}
+        currentNewPostTextAreaValue={props.currentNewPostTextAreaValue}
       />
     </div>
   );
