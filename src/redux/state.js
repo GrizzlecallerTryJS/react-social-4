@@ -59,17 +59,19 @@ export const currentNewPostTextAreaValue = (text) => {
   rerender(state, addPostFunc, currentNewPostTextAreaValue);
 };
 
-export const addPostFunc = (
-  postMessage = state.profilePage.tempPostData.message,
-  postData = state.profilePage.postData
-) => {
-  let postObject = {
-    id: postData.length + 1,
-    message: postMessage,
-    likesCount: 0,
-  };
-  postData.push(postObject);
-  rerender(state, addPostFunc, currentNewPostTextAreaValue);
+export const addPostFunc = () => {
+  if (state.profilePage.tempPostData.message.length > 0) {
+    let postObject = {
+      id: state.profilePage.postData.length + 1,
+      message: state.profilePage.tempPostData.message,
+      likesCount: 0,
+    };
+    state.profilePage.postData.push(postObject);
+    state.profilePage.tempPostData.message = "";
+    rerender(state, addPostFunc, currentNewPostTextAreaValue);
+  }
 };
+
+window.state = state;
 
 export default state;
