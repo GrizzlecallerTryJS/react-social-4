@@ -1,4 +1,4 @@
-import rerender from "../rerender";
+let rerender = () => {};
 
 let state = {
   profilePage: {
@@ -31,7 +31,7 @@ let state = {
       { id: 5, message: `Lorem ipsum dolor sit amet, consectetur.` },
       { id: 6, message: `Lorem ipsum dolor sit.` },
     ],
-    tempMessageData: { message: `ee` },
+    tempMessageData: { message: `` },
   },
   navbarState: {
     title: [
@@ -92,6 +92,10 @@ export const addMessageFunc = () => {
     state.dialogsPage.tempMessageData.message = "";
     rerender();
   }
+};
+
+export const subscribe = (observer) => {
+  rerender = observer;
 };
 
 window.state = state;
