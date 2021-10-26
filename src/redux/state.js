@@ -56,6 +56,7 @@ let state = {
 
 export const currentNewPostTextAreaValue = (text) => {
   state.profilePage.tempPostData.message = text;
+  rerender(state, addPostFunc, currentNewPostTextAreaValue);
 };
 
 export const addPostFunc = (

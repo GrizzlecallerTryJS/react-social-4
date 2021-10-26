@@ -8,6 +8,7 @@ const Posts = (props) => {
       <NewPost
         addPostFunc={props.addPostFunc}
         currentNewPostTextAreaValue={props.currentNewPostTextAreaValue}
+        textAreaValue={props.profileState.tempPostData}
       />
       <CompletedPost postData={props.profileState.postData} />
     </div>
