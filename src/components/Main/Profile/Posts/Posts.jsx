@@ -5,8 +5,11 @@ import CompletedPost from "./PostComponents/CompletedPost/CompletedPost";
 const Posts = (props) => {
   return (
     <div>
-      <NewPost addPostFunc={props.addPostFunc} />
-      <CompletedPost postData={props.postData} />
+      <NewPost
+        addPostFunc={props.addPostFunc}
+        currentNewPostTextAreaValue={props.currentNewPostTextAreaValue}
+      />
+      <CompletedPost postData={props.profileState.postData} />
     </div>
   );
 };

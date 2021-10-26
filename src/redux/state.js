@@ -7,6 +7,7 @@ let state = {
       { id: 2, message: `second`, likesCount: 6 },
       { id: 3, message: "lorem", likesCount: 2 },
     ],
+    tempPostData: { message: `` },
   },
   dialogsPage: {
     dialogsData: [
@@ -53,8 +54,12 @@ let state = {
   },
 };
 
+export const currentNewPostTextAreaValue = (text) => {
+  state.profilePage.tempPostData.message = text;
+};
+
 export const addPostFunc = (
-  postMessage,
+  postMessage = state.profilePage.tempPostData.message,
   postData = state.profilePage.postData
 ) => {
   let postObject = {
@@ -63,7 +68,7 @@ export const addPostFunc = (
     likesCount: 0,
   };
   postData.push(postObject);
-  rerender(state, addPostFunc);
+  rerender(state, addPostFunc, currentNewPostTextAreaValue);
 };
 
 export default state;

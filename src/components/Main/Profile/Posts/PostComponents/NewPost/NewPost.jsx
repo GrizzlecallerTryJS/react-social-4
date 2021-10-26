@@ -3,19 +3,28 @@ import React from "react";
 const NewPost = (props) => {
   let textAreaRef = React.createRef();
 
-  const addButtonAction = () => {
-    let text = textAreaRef.current.value;
-    props.addPostFunc(text);
+  const addPostButtonAction = () => {
+    props.addPostFunc();
     textAreaRef.current.value = ``;
+    props.currentNewPostTextAreaValue("");
+  };
+
+  const onChangeAction = () => {
+    let text = textAreaRef.current.value;
+    props.currentNewPostTextAreaValue(text);
   };
 
   return (
     <div>
       <p>New post</p>
       <div>
-        <textarea ref={textAreaRef} name="newPost"></textarea>
+        <textarea
+          ref={textAreaRef}
+          onChange={onChangeAction}
+          name="newPost"
+        ></textarea>
         <div>
-          <button onClick={addButtonAction}>addPost</button>
+          <button onClick={addPostButtonAction}>addPost</button>
         </div>
       </div>
     </div>

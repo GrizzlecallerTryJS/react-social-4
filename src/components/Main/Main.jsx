@@ -13,6 +13,7 @@ const Main = (props) => {
       <Profile
         profileState={props.profileState}
         addPostFunc={props.addPostFunc}
+        currentNewPostTextAreaValue={props.currentNewPostTextAreaValue}
       />
     );
   };
