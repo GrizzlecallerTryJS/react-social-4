@@ -17,7 +17,13 @@ const Dialogs = (props) => {
             <MessageItem messages={props.dialogsState.messagesData} />
           </div>
           <div>
-            <MessageTextArea />
+            <MessageTextArea
+              textAreaValue={props.dialogsState.tempMessageData}
+              addMessageFunc={props.addMessageFunc}
+              currentNewMessageTextAreaValue={
+                props.currentNewMessageTextAreaValue
+              }
+            />
           </div>
         </div>
       </div>

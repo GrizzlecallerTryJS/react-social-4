@@ -1,18 +1,27 @@
 import React from "react";
 
-const MessageTextArea = () => {
+const MessageTextArea = (props) => {
   let textAreaRef = React.createRef();
 
-  const sentMessage = () => {
+  const sendMessageButtonAction = () => {
+    props.addMessageFunc();
+  };
+
+  const onChangeAction = () => {
     let text = textAreaRef.current.value;
-    alert(text);
+    props.currentNewMessageTextAreaValue(text);
   };
 
   return (
     <div>
-      <textarea ref={textAreaRef} name={`message`}></textarea>
+      <textarea
+        ref={textAreaRef}
+        name={`message`}
+        onChange={onChangeAction}
+        value={props.textAreaValue.message}
+      />
       <div>
-        <button onClick={sentMessage} name={`sentMessage`}>
+        <button onClick={sendMessageButtonAction} name={`sentMessage`}>
           Send
         </button>
       </div>

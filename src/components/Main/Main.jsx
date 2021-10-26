@@ -19,7 +19,13 @@ const Main = (props) => {
   };
 
   const DialogsComponent = () => {
-    return <Dialogs dialogsState={props.dialogsState} />;
+    return (
+      <Dialogs
+        dialogsState={props.dialogsState}
+        addMessageFunc={props.addMessageFunc}
+        currentNewMessageTextAreaValue={props.currentNewMessageTextAreaValue}
+      />
+    );
   };
 
   const NewsComponent = () => {
