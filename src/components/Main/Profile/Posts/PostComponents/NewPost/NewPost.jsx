@@ -4,12 +4,18 @@ const NewPost = (props) => {
   let textAreaRef = React.createRef();
 
   const addPostButtonAction = () => {
-    props.addPostFunc();
+    let action = {
+      type: `ADD_POST`,
+    };
+    props.dispatch(action);
   };
 
   const onChangeAction = () => {
-    let text = textAreaRef.current.value;
-    props.currentNewPostTextAreaValue(text);
+    let action = {
+      type: `CURRENT_NEW_POST_TEXT`,
+      text: textAreaRef.current.value,
+    };
+    props.dispatch(action);
   };
 
   return (

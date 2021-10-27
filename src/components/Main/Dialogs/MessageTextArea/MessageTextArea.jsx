@@ -4,12 +4,18 @@ const MessageTextArea = (props) => {
   let textAreaRef = React.createRef();
 
   const sendMessageButtonAction = () => {
-    props.addMessageFunc();
+    let action = {
+      type: `SEND_MESSAGE`,
+    };
+    props.dispatch(action);
   };
 
   const onChangeAction = () => {
-    let text = textAreaRef.current.value;
-    props.currentNewMessageTextAreaValue(text);
+    let action = {
+      type: `CURRENT_NEW_MESSAGE_TEXT`,
+      text: textAreaRef.current.value,
+    };
+    props.dispatch(action);
   };
 
   return (

@@ -1,3 +1,8 @@
+const ADD_POST = "ADD_POST";
+const SEND_MESSAGE = "SEND_MESSAGE";
+const CURRENT_NEW_POST_TEXT = "CURRENT_NEW_POST_TEXT";
+const CURRENT_NEW_MESSAGE_TEXT = "CURRENT_NEW_MESSAGE_TEXT";
+
 let store = {
   _callSubscriber() {},
 
@@ -60,18 +65,14 @@ let store = {
     },
   },
 
-  getState() {
-    return this._state;
-  },
-
   /*Posts*/
 
-  currentNewPostTextAreaValue(text) {
+  _currentNewPostTextAreaValue(text) {
     this._state.profilePage.tempPostData.message = text;
     this._callSubscriber(this._state);
   },
 
-  addPostFunc() {
+  _addPostFunc() {
     if (this._state.profilePage.tempPostData.message.length > 0) {
       let postObject = {
         id: this._state.profilePage.postData.length + 1,
@@ -86,12 +87,12 @@ let store = {
 
   /*Messages*/
 
-  currentNewMessageTextAreaValue(text) {
+  _currentNewMessageTextAreaValue(text) {
     this._state.dialogsPage.tempMessageData.message = text;
     this._callSubscriber(this._state);
   },
 
-  addMessageFunc() {
+  _addMessageFunc() {
     if (this._state.dialogsPage.tempMessageData.message.length > 0) {
       let postObject = {
         id: this._state.dialogsPage.messagesData.length + 1,
@@ -100,6 +101,22 @@ let store = {
       this._state.dialogsPage.messagesData.push(postObject);
       this._state.dialogsPage.tempMessageData.message = "";
       this._callSubscriber(this._state);
+    }
+  },
+
+  getState() {
+    return this._state;
+  },
+
+  dispatch(action) {
+    if (action.type === ADD_POST) {
+      this._addPostFunc();
+    } else if (action.type === SEND_MESSAGE) {
+      this._addMessageFunc();
+    } else if (action.type === CURRENT_NEW_POST_TEXT) {
+      this._currentNewPostTextAreaValue(action.text);
+    } else if (action.type === CURRENT_NEW_MESSAGE_TEXT) {
+      this._currentNewMessageTextAreaValue(action.text);
     }
   },
 };

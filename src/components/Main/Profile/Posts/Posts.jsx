@@ -6,9 +6,8 @@ const Posts = (props) => {
   return (
     <div>
       <NewPost
-        addPostFunc={props.addPostFunc}
-        currentNewPostTextAreaValue={props.currentNewPostTextAreaValue}
         textAreaValue={props.profileState.tempPostData}
+        dispatch={props.dispatch}
       />
       <CompletedPost postData={props.profileState.postData} />
     </div>
