@@ -19,10 +19,7 @@ const Dialogs = (props) => {
           <div>
             <MessageTextArea
               textAreaValue={props.dialogsState.tempMessageData}
-              addMessageFunc={props.addMessageFunc}
-              currentNewMessageTextAreaValue={
-                props.currentNewMessageTextAreaValue
-              }
+              dispatch={props.dispatch}
             />
           </div>
         </div>

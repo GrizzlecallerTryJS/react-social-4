@@ -10,21 +10,13 @@ import People from "./People/People";
 const Main = (props) => {
   const ProfileComponent = () => {
     return (
-      <Profile
-        profileState={props.profileState}
-        addPostFunc={props.addPostFunc}
-        currentNewPostTextAreaValue={props.currentNewPostTextAreaValue}
-      />
+      <Profile profileState={props.profileState} dispatch={props.dispatch} />
     );
   };
 
   const DialogsComponent = () => {
     return (
-      <Dialogs
-        dialogsState={props.dialogsState}
-        addMessageFunc={props.addMessageFunc}
-        currentNewMessageTextAreaValue={props.currentNewMessageTextAreaValue}
-      />
+      <Dialogs dialogsState={props.dialogsState} dispatch={props.dispatch} />
     );
   };
 

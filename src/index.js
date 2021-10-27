@@ -9,17 +9,7 @@ import store from "./redux/state";
 const rerender = (state) => {
   ReactDOM.render(
     <Router>
-      <App
-        state={state}
-        addPostFunc={store.addPostFunc.bind(store)}
-        currentNewPostTextAreaValue={store.currentNewPostTextAreaValue.bind(
-          store
-        )}
-        addMessageFunc={store.addMessageFunc.bind(store)}
-        currentNewMessageTextAreaValue={store.currentNewMessageTextAreaValue.bind(
-          store
-        )}
-      />
+      <App state={state} dispatch={store.dispatch.bind(store)} />
     </Router>,
     document.getElementById("root")
   );
