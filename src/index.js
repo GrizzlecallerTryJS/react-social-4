@@ -1,35 +1,33 @@
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
-import state, {
-  addMessageFunc,
-  addPostFunc,
-  currentNewMessageTextAreaValue,
-  currentNewPostTextAreaValue,
-  subscribe,
-} from "./redux/state";
 import ReactDOM from "react-dom";
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import App from "./App";
+import store from "./redux/state";
 
 const rerender = (state) => {
   ReactDOM.render(
     <Router>
       <App
         state={state}
-        addPostFunc={addPostFunc}
-        currentNewPostTextAreaValue={currentNewPostTextAreaValue}
-        addMessageFunc={addMessageFunc}
-        currentNewMessageTextAreaValue={currentNewMessageTextAreaValue}
+        addPostFunc={store.addPostFunc.bind(store)}
+        currentNewPostTextAreaValue={store.currentNewPostTextAreaValue.bind(
+          store
+        )}
+        addMessageFunc={store.addMessageFunc.bind(store)}
+        currentNewMessageTextAreaValue={store.currentNewMessageTextAreaValue.bind(
+          store
+        )}
       />
     </Router>,
     document.getElementById("root")
   );
 };
 
-rerender(state);
+rerender(store.getState());
 
-subscribe(rerender);
+store.subscribe(rerender);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

@@ -181,6 +181,7 @@ sketch
 # .idea/modules
 # *.iml
 # *.ipr
+.idea/misc.xml
 
 # CMake
 cmake-build-*/
