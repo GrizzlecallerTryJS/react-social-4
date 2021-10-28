@@ -21,63 +21,25 @@ let store = {
     },
     dialogsPage: {
       dialogsData: [
-        {
-          id: 1,
-          name: "qw",
-          messagesData: [
-            { id: 1, message: "Lorem ipsum dolor sit." },
-            {
-              id: 2,
-              message:
-                "Lorem sit amet, consectetur adipisicing elit. Accusanti,",
-            },
-            { id: 3, message: "Lorem ipsum dolor sit amet." },
-          ],
-        },
+        { id: 1, name: "qw" },
+        { id: 2, name: "we" },
+        { id: 3, name: "er" },
+        { id: 4, name: "rt" },
+        { id: 5, name: "ty" },
+      ],
+      messagesData: [
+        { id: 1, message: "Lorem ipsum dolor sit." },
         {
           id: 2,
-          name: "we",
-          messagesData: [
-            {
-              id: 1,
-              message:
-                "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-            },
-          ],
+          message: "Lorem sit amet, consectetur adipisicing elit. Accusanti,",
         },
-        {
-          id: 3,
-          name: "er",
-          messagesData: [
-            {
-              id: 1,
-              message:
-                "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-            },
-            { id: 2, message: "Lorem ipsum dolor sit amet, consectetur." },
-          ],
-        },
+        { id: 3, message: "Lorem ipsum dolor sit amet." },
         {
           id: 4,
-          name: "rt",
-          messagesData: [
-            {
-              id: 1,
-              message:
-                "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-            },
-            { id: 2, message: "Lorem ipsum dolor sit amet, consectetur." },
-            { id: 3, message: "Lorem ipsum dolor sit." },
-          ],
+          message: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
         },
-        {
-          id: 5,
-          name: "ty",
-          messagesData: [
-            { id: 1, message: "Lorem ipsum dolor sit amet, consectetur." },
-            { id: 2, message: "Lorem ipsum dolor sit." },
-          ],
-        },
+        { id: 5, message: "Lorem ipsum dolor sit amet, consectetur." },
+        { id: 6, message: "Lorem ipsum dolor sit." },
       ],
       tempMessageData: [{ message: "" }],
     },
@@ -127,26 +89,20 @@ let store = {
     }
   },
 
-  /*/!*Messages*!/*/
+  /*Messages*/
 
   _currentNewMessageTextAreaValue(text) {
     this._state.dialogsPage.tempMessageData.message = text;
     this._callSubscriber(this._state);
   },
 
-  _addMessageFunc(dialogId) {
+  _addMessageFunc() {
     if (this._state.dialogsPage.tempMessageData.message.length > 0) {
-      this._state.dialogsPage.dialogsData.map((dialog) => {
-        if (dialog.id === dialogId) {
-          let postObject = {
-            id: dialog.messagesData.length + 1,
-            message: this._state.dialogsPage.tempMessageData.message,
-          };
-
-          dialog.messagesData.push(postObject);
-        }
-      });
-
+      let postObject = {
+        id: this._state.dialogsPage.messagesData.length + 1,
+        message: this._state.dialogsPage.tempMessageData.message,
+      };
+      this._state.dialogsPage.messagesData.push(postObject);
       this._state.dialogsPage.tempMessageData.message = "";
       this._callSubscriber(this._state);
     }
@@ -156,7 +112,7 @@ let store = {
     if (action.type === ADD_POST) {
       this._addPostFunc();
     } else if (action.type === SEND_MESSAGE) {
-      this._addMessageFunc(action.dialogId);
+      this._addMessageFunc();
     } else if (action.type === CURRENT_NEW_POST_TEXT) {
       this._currentNewPostTextAreaValue(action.text);
     } else if (action.type === CURRENT_NEW_MESSAGE_TEXT) {
@@ -178,10 +134,9 @@ export const currentNewPostTextAreaValueAC = (text) => {
   };
 };
 
-export const addMessageAC = (dialogId) => {
+export const addMessageAC = () => {
   return {
     type: SEND_MESSAGE,
-    dialogId: dialogId,
   };
 };
 

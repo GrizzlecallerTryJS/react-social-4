@@ -1,6 +1,6 @@
 .main {
   display: grid;
-  grid-template-areas: "dialog_item messages";
+  grid-template-areas: "dialog_item messages_item";
   grid-template-columns: 30% 70%;
   grid-template-rows: auto;
 }
@@ -10,5 +10,5 @@
 }
 
 .messages_item {
-  grid-area: messages;
+  grid-area: messages_item;
 }
