@@ -2,13 +2,13 @@ import React from "react";
 import {
   addMessageAC,
   currentNewMessageTextAreaValueAC,
-} from "../../../../redux/state";
+} from "../../../../../redux/state";
 
 const MessageTextArea = (props) => {
   let textAreaRef = React.createRef();
 
   const sendMessageButtonAction = () => {
-    props.dispatch(addMessageAC());
+    props.dispatch(addMessageAC(props.dialogId));
   };
 
   const onChangeAction = () => {
@@ -22,7 +22,7 @@ const MessageTextArea = (props) => {
         ref={textAreaRef}
         name={`message`}
         onChange={onChangeAction}
-        value={props.textAreaValue.message}
+        value={props.textAreadata.message}
       />
       <div>
         <button onClick={sendMessageButtonAction} name={`sentMessage`}>
