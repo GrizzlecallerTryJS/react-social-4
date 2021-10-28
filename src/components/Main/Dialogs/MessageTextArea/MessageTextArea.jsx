@@ -1,21 +1,19 @@
 import React from "react";
+import {
+  addMessageAC,
+  currentNewMessageTextAreaValueAC,
+} from "../../../../redux/state";
 
 const MessageTextArea = (props) => {
   let textAreaRef = React.createRef();
 
   const sendMessageButtonAction = () => {
-    let action = {
-      type: `SEND_MESSAGE`,
-    };
-    props.dispatch(action);
+    props.dispatch(addMessageAC());
   };
 
   const onChangeAction = () => {
-    let action = {
-      type: `CURRENT_NEW_MESSAGE_TEXT`,
-      text: textAreaRef.current.value,
-    };
-    props.dispatch(action);
+    let text = textAreaRef.current.value;
+    props.dispatch(currentNewMessageTextAreaValueAC(text));
   };
 
   return (

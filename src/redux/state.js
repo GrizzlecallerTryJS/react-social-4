@@ -121,6 +121,32 @@ let store = {
   },
 };
 
+export const addPostAC = () => {
+  return {
+    type: ADD_POST,
+  };
+};
+
+export const currentNewPostTextAreaValueAC = (text) => {
+  return {
+    type: CURRENT_NEW_POST_TEXT,
+    text: text,
+  };
+};
+
+export const addMessageAC = () => {
+  return {
+    type: SEND_MESSAGE,
+  };
+};
+
+export const currentNewMessageTextAreaValueAC = (text) => {
+  return {
+    type: CURRENT_NEW_MESSAGE_TEXT,
+    text: text,
+  };
+};
+
 window.store = store;
 
 export default store;
