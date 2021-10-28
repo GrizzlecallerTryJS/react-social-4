@@ -1,7 +1,6 @@
-const ADD_POST = "ADD_POST";
-const SEND_MESSAGE = "SEND_MESSAGE";
-const CURRENT_NEW_POST_TEXT = "CURRENT_NEW_POST_TEXT";
-const CURRENT_NEW_MESSAGE_TEXT = "CURRENT_NEW_MESSAGE_TEXT";
+import profileReducer from "./profileReducer";
+import dialogsReducer from "./dialogsReducer";
+import navbarReducer from "./navbarReducer";
 
 let store = {
   _callSubscriber() {},
@@ -107,89 +106,12 @@ let store = {
     return this._state;
   },
 
-  /*Posts*/
-
-  _currentNewPostTextAreaValue(text) {
-    this._state.profilePage.tempPostData.message = text;
-    this._callSubscriber(this._state);
-  },
-
-  _addPostFunc() {
-    if (this._state.profilePage.tempPostData.message.length > 0) {
-      let postObject = {
-        id: this._state.profilePage.postData.length + 1,
-        message: this._state.profilePage.tempPostData.message,
-        likesCount: 0,
-      };
-      this._state.profilePage.postData.push(postObject);
-      this._state.profilePage.tempPostData.message = "";
-      this._callSubscriber(this._state);
-    }
-  },
-
-  /*/!*Messages*!/*/
-
-  _currentNewMessageTextAreaValue(text) {
-    this._state.dialogsPage.tempMessageData.message = text;
-    this._callSubscriber(this._state);
-  },
-
-  _addMessageFunc(dialogId) {
-    if (this._state.dialogsPage.tempMessageData.message.length > 0) {
-      this._state.dialogsPage.dialogsData.map((dialog) => {
-        if (dialog.id === dialogId) {
-          let postObject = {
-            id: dialog.messagesData.length + 1,
-            message: this._state.dialogsPage.tempMessageData.message,
-          };
-
-          dialog.messagesData.push(postObject);
-        }
-      });
-
-      this._state.dialogsPage.tempMessageData.message = "";
-      this._callSubscriber(this._state);
-    }
-  },
-
   dispatch(action) {
-    if (action.type === ADD_POST) {
-      this._addPostFunc();
-    } else if (action.type === SEND_MESSAGE) {
-      this._addMessageFunc(action.dialogId);
-    } else if (action.type === CURRENT_NEW_POST_TEXT) {
-      this._currentNewPostTextAreaValue(action.text);
-    } else if (action.type === CURRENT_NEW_MESSAGE_TEXT) {
-      this._currentNewMessageTextAreaValue(action.text);
-    }
+    this._state.profilePage = profileReducer(this._state.profilePage, action);
+    this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+    this._state.navbarState = navbarReducer(this._state.navbarState, action);
+    this._callSubscriber(this._state);
   },
-};
-
-export const addPostAC = () => {
-  return {
-    type: ADD_POST,
-  };
-};
-
-export const currentNewPostTextAreaValueAC = (text) => {
-  return {
-    type: CURRENT_NEW_POST_TEXT,
-    text: text,
-  };
-};
-
-export const addMessageAC = (dialogId) => {
-  return {
-    type: SEND_MESSAGE,
-    dialogId: dialogId,
-  };
-};
-
-export const currentNewMessageTextAreaValueAC = (text) => {
-  return {
-    type: CURRENT_NEW_MESSAGE_TEXT,
-    text: text,
-  };
 };
 
 window.store = store;

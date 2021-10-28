@@ -2,7 +2,7 @@ import React from "react";
 import {
   addPostAC,
   currentNewPostTextAreaValueAC,
-} from "../../../../../../redux/state";
+} from "../../../../../../redux/profileReducer";
 
 const NewPost = (props) => {
   let textAreaRef = React.createRef();
