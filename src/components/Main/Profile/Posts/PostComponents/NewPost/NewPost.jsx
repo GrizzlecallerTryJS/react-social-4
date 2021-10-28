@@ -1,21 +1,19 @@
 import React from "react";
+import {
+  addPostAC,
+  currentNewPostTextAreaValueAC,
+} from "../../../../../../redux/state";
 
 const NewPost = (props) => {
   let textAreaRef = React.createRef();
 
   const addPostButtonAction = () => {
-    let action = {
-      type: `ADD_POST`,
-    };
-    props.dispatch(action);
+    props.dispatch(addPostAC());
   };
 
   const onChangeAction = () => {
-    let action = {
-      type: `CURRENT_NEW_POST_TEXT`,
-      text: textAreaRef.current.value,
-    };
-    props.dispatch(action);
+    let text = textAreaRef.current.value;
+    props.dispatch(currentNewPostTextAreaValueAC(text));
   };
 
   return (
