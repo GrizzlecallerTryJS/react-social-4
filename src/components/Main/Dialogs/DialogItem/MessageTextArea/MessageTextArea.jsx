@@ -2,7 +2,7 @@ import React from "react";
 import {
   addMessageAC,
   currentNewMessageTextAreaValueAC,
-} from "../../../../../redux/state";
+} from "../../../../../redux/dialogsReducer";
 
 const MessageTextArea = (props) => {
   let textAreaRef = React.createRef();
