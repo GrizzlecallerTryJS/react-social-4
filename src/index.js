@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import App from "./App";
-import store from "./redux/store";
+import store from "./redux/redusStore";
 
 const rerender = (state) => {
   ReactDOM.render(
@@ -17,7 +17,9 @@ const rerender = (state) => {
 
 rerender(store.getState());
 
-store.subscribe(rerender);
+store.subscribe(() => {
+  rerender(store.getState());
+});
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

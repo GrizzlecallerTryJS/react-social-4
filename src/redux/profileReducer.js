@@ -6,7 +6,16 @@ import {
 const ADD_POST = "ADD_POST";
 const CURRENT_NEW_POST_TEXT = "CURRENT_NEW_POST_TEXT";
 
-const profileReducer = (state, action) => {
+const initialState = {
+  postData: [
+    { id: 1, message: "first", likesCount: 4 },
+    { id: 2, message: "second", likesCount: 6 },
+    { id: 3, message: "lorem", likesCount: 2 },
+  ],
+  tempPostData: { message: "" },
+};
+
+const profileReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_POST:
       _addPostFunc(state);
