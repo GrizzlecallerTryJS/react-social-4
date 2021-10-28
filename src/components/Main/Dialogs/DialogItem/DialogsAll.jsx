@@ -13,7 +13,7 @@ const DialogsItem = (props) => {
         </div>
         <div>
           <MessageTextArea
-            textAreadata={props.textAreaData}
+            textAreaData={props.textAreaData}
             dispatch={props.dispatch}
             dialogId={props.id}
           />

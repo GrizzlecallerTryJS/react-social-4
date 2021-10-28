@@ -22,7 +22,7 @@ const MessageTextArea = (props) => {
         ref={textAreaRef}
         name={`message`}
         onChange={onChangeAction}
-        value={props.textAreadata.message}
+        value={props.textAreaData.message}
       />
       <div>
         <button onClick={sendMessageButtonAction} name={`sentMessage`}>
