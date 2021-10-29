@@ -1,11 +1,11 @@
 import React from "react";
-import NewPost from "./PostComponents/NewPost/NewPost";
 import CompletedPost from "./PostComponents/CompletedPost/CompletedPost";
+import NewPostContainer from "./PostComponents/NewPost/NewPostContainer";
 
 const Posts = (props) => {
   return (
     <div>
-      <NewPost
+      <NewPostContainer
         textAreaValue={props.profileState.tempPostData}
         dispatch={props.dispatch}
       />

@@ -1,31 +1,27 @@
 import React from "react";
-import {
-  addMessageAC,
-  currentNewMessageTextAreaValueAC,
-} from "../../../../../redux/dialogsReducer";
 
 const MessageTextArea = (props) => {
   let textAreaRef = React.createRef();
 
-  const sendMessageButtonAction = () => {
-    props.dispatch(addMessageAC(props.dialogId));
-  };
-
   const onChangeAction = () => {
     let text = textAreaRef.current.value;
-    props.dispatch(currentNewMessageTextAreaValueAC(text));
+    props.onChange(text);
+  };
+
+  const sendMessageAction = () => {
+    return props.sendMessage();
   };
 
   return (
     <div>
       <textarea
         ref={textAreaRef}
-        name={`message`}
+        name={`newMessage`}
         onChange={onChangeAction}
-        value={props.textAreaData.message}
+        value={props.textAreaData}
       />
       <div>
-        <button onClick={sendMessageButtonAction} name={`sentMessage`}>
+        <button onClick={sendMessageAction} name={`sendMessage`}>
           Send
         </button>
       </div>
