@@ -1,19 +1,16 @@
 import React from "react";
-import {
-  addPostAC,
-  currentNewPostTextAreaValueAC,
-} from "../../../../../../redux/profileReducer";
 
 const NewPost = (props) => {
+  debugger;
   let textAreaRef = React.createRef();
-
-  const addPostButtonAction = () => {
-    props.dispatch(addPostAC());
-  };
 
   const onChangeAction = () => {
     let text = textAreaRef.current.value;
-    props.dispatch(currentNewPostTextAreaValueAC(text));
+    props.onChange(text);
+  };
+
+  const addPostAction = () => {
+    return props.addPost();
   };
 
   return (
@@ -23,11 +20,13 @@ const NewPost = (props) => {
         <textarea
           ref={textAreaRef}
           onChange={onChangeAction}
-          name="newPost"
-          value={props.textAreaValue.message}
+          name={`newPost`}
+          value={props.textAreaValue}
         />
         <div>
-          <button onClick={addPostButtonAction}>addPost</button>
+          <button onClick={addPostAction} name={`addPost`}>
+            addPost
+          </button>
         </div>
       </div>
     </div>

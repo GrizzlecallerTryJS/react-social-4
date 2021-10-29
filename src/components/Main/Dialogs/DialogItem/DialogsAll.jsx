@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Dialogs_all.module.css";
 import { NavLink, Route } from "react-router-dom";
 import MessageItem from "./MessageItem/MessageItem";
-import MessageTextArea from "./MessageTextArea/MessageTextArea";
+import MessageTextAreaContainer from "./MessageTextArea/MessageTextAreaContainer";
 
 const DialogsItem = (props) => {
   const MessagesForDialogs = () => {
@@ -12,7 +12,7 @@ const DialogsItem = (props) => {
           <MessageItem messages={props.messages} />
         </div>
         <div>
-          <MessageTextArea
+          <MessageTextAreaContainer
             textAreaData={props.textAreaData}
             dispatch={props.dispatch}
             dialogId={props.id}
