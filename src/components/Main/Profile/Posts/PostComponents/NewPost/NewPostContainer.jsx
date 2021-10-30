@@ -4,23 +4,25 @@ import {
   addPostAC,
   currentNewPostTextAreaValueAC,
 } from "../../../../../../redux/profileReducer";
+import { connect } from "react-redux";
 
-const NewPostContainer = (props) => {
-  const addPostButtonAction = () => {
-    props.dispatch(addPostAC());
+let mapStateToProps = (state) => {
+  return {
+    textAreaValue: state.profilePage.tempPostData.message,
   };
-
-  const onChange = (text) => {
-    props.dispatch(currentNewPostTextAreaValueAC(text));
-  };
-
-  return (
-    <NewPost
-      addPost={addPostButtonAction}
-      onChange={onChange}
-      textAreaValue={props.textAreaValue.message}
-    />
-  );
 };
+
+let mapDispatchToProps = (dispatch) => {
+  return {
+    onChange: (text) => {
+      dispatch(currentNewPostTextAreaValueAC(text));
+    },
+    addPost: () => {
+      dispatch(addPostAC());
+    },
+  };
+};
+
+const NewPostContainer = connect(mapStateToProps, mapDispatchToProps)(NewPost);
 
 export default NewPostContainer;

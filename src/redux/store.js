@@ -78,7 +78,7 @@ let store = {
           ],
         },
       ],
-      tempMessageData: [{ message: "" }],
+      tempMessageData: [{ message: "", textAreaId: 1 }],
     },
     navbarState: {
       title: [

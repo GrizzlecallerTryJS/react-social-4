@@ -4,25 +4,28 @@ import {
   addMessageAC,
   currentNewMessageTextAreaValueAC,
 } from "../../../../../redux/dialogsReducer";
+import { connect } from "react-redux";
 
-const MessageTextAreaContainer = (props) => {
-  const sendMessageButtonAction = () => {
-    props.dispatch(addMessageAC(props.dialogId));
+let mapStateToProps = (state) => {
+  return {
+    textAreaData: state.dialogsPage.tempMessageData.message,
   };
-
-  const onChange = (text) => {
-    props.dispatch(currentNewMessageTextAreaValueAC(text));
-  };
-
-  return (
-    <div>
-      <MessageTextArea
-        sendMessage={sendMessageButtonAction}
-        onChange={onChange}
-        textAreaData={props.textAreaData.message}
-      />
-    </div>
-  );
 };
+
+let mapDispatchToProps = (dispatch) => {
+  return {
+    onChange: (text) => {
+      dispatch(currentNewMessageTextAreaValueAC(text));
+    },
+    sendMessage: (dialogId) => {
+      dispatch(addMessageAC(dialogId));
+    },
+  };
+};
+
+const MessageTextAreaContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MessageTextArea);
 
 export default MessageTextAreaContainer;

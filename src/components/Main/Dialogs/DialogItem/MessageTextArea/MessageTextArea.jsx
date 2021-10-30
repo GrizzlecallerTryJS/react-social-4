@@ -5,11 +5,11 @@ const MessageTextArea = (props) => {
 
   const onChangeAction = () => {
     let text = textAreaRef.current.value;
-    props.onChange(text);
+    props.onChange(text, props.dialogId);
   };
 
   const sendMessageAction = () => {
-    return props.sendMessage();
+    return props.sendMessage(props.dialogId);
   };
 
   return (

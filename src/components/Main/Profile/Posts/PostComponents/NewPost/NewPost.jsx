@@ -1,7 +1,6 @@
 import React from "react";
 
 const NewPost = (props) => {
-  debugger;
   let textAreaRef = React.createRef();
 
   const onChangeAction = () => {
