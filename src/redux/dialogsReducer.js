@@ -71,7 +71,7 @@ const dialogsReducer = (state = initialState, action) => {
       _addMessageFunc(state, action.dialogId);
       return state;
     case CURRENT_NEW_MESSAGE_TEXT:
-      _currentNewMessageTextAreaValue(state, action.text);
+      _currentNewMessageTextAreaValue(state, action.text, action.textAreaId);
       return state;
     default:
       return state;
@@ -85,10 +85,11 @@ export const addMessageAC = (dialogId) => {
   };
 };
 
-export const currentNewMessageTextAreaValueAC = (text) => {
+export const currentNewMessageTextAreaValueAC = (text, textAreaId) => {
   return {
     type: CURRENT_NEW_MESSAGE_TEXT,
     text: text,
+    textAreaId: textAreaId,
   };
 };
 

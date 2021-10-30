@@ -1,8 +1,8 @@
-import React from "react";
 import styles from "./Dialogs_all.module.css";
-import { NavLink, Route } from "react-router-dom";
 import MessageItem from "./MessageItem/MessageItem";
 import MessageTextAreaContainer from "./MessageTextArea/MessageTextAreaContainer";
+import { NavLink, Route } from "react-router-dom";
+import React from "react";
 
 const DialogsItem = (props) => {
   const MessagesForDialogs = () => {
@@ -36,21 +36,4 @@ const DialogsItem = (props) => {
   );
 };
 
-const DialogsAll = (props) => {
-  return (
-    <div className={styles.dialog_item}>
-      {props.dialogsState.dialogsData.map((data) => (
-        <DialogsItem
-          key={data.id}
-          name={data.name}
-          id={data.id}
-          messages={data.messagesData}
-          textAreaData={props.dialogsState.tempMessageData}
-          dispatch={props.dispatch}
-        />
-      ))}
-    </div>
-  );
-};
-
-export default DialogsAll;
+export default DialogsItem;

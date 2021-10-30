@@ -1,15 +1,12 @@
 import React from "react";
-import CompletedPost from "./PostComponents/CompletedPost/CompletedPost";
 import NewPostContainer from "./PostComponents/NewPost/NewPostContainer";
+import CompletedPostContainer from "./PostComponents/CompletedPost/CompletedPostContainer";
 
-const Posts = (props) => {
+const Posts = () => {
   return (
     <div>
-      <NewPostContainer
-        textAreaValue={props.profileState.tempPostData}
-        dispatch={props.dispatch}
-      />
-      <CompletedPost postData={props.profileState.postData} />
+      <NewPostContainer />
+      <CompletedPostContainer />
     </div>
   );
 };

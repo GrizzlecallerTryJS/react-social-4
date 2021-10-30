@@ -1,5 +1,8 @@
-export const _currentNewMessageTextAreaValue = (state, text) => {
-  state.tempMessageData.message = text;
+export const _currentNewMessageTextAreaValue = (state, text, textAreaId) => {
+  /*if (text !== undefined || textAreaId !== null) */ {
+    state.tempMessageData.message = text;
+    state.tempMessageData.textAreaId = textAreaId;
+  }
 };
 
 export const _addMessageFunc = (state, dialogId) => {

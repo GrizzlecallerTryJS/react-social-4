@@ -1,5 +1,5 @@
 import React from "react";
-import DialogsAll from "./DialogItem/DialogsAll";
+import DialogItemContainer from "./DialogItem/DialogItemContainer";
 import styles from "./Dialogs.module.css";
 
 const Dialogs = (props) => {
@@ -7,7 +7,7 @@ const Dialogs = (props) => {
     <div>
       <div>Dialogs</div>
       <div className={styles.main}>
-        <DialogsAll
+        <DialogItemContainer
           dialogsState={props.dialogsState}
           dispatch={props.dispatch}
         />

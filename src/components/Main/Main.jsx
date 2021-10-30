@@ -9,9 +9,7 @@ import People from "./People/People";
 
 const Main = (props) => {
   const ProfileComponent = () => {
-    return (
-      <Profile profileState={props.profileState} dispatch={props.dispatch} />
-    );
+    return <Profile />;
   };
 
   const DialogsComponent = () => {
