@@ -62,17 +62,26 @@ const initialState = {
       ],
     },
   ],
-  tempMessageData: [{ message: "" }],
+  tempMessageData: { message: "", textAreaId: 0 },
 };
 
 const dialogsReducer = (state = initialState, action) => {
+  let stateCopy = { ...state };
+  stateCopy.dialogsData = [...state.dialogsData];
+  stateCopy.dialogsData.messagesData = [{ ...state.dialogsData.messagesData }];
+  stateCopy.tempMessageData = { ...state.tempMessageData };
+
   switch (action.type) {
     case SEND_MESSAGE:
-      _addMessageFunc(state, action.dialogId);
-      return state;
+      _addMessageFunc(stateCopy, action.dialogId);
+      return stateCopy;
     case CURRENT_NEW_MESSAGE_TEXT:
-      _currentNewMessageTextAreaValue(state, action.text, action.textAreaId);
-      return state;
+      _currentNewMessageTextAreaValue(
+        stateCopy.tempMessageData,
+        action.text,
+        action.textAreaId
+      );
+      return stateCopy;
     default:
       return state;
   }
@@ -85,7 +94,7 @@ export const addMessageAC = (dialogId) => {
   };
 };
 
-export const currentNewMessageTextAreaValueAC = (text, textAreaId) => {
+export const currentNewMessageTextAreaValueAC = (text, textAreaId = 0) => {
   return {
     type: CURRENT_NEW_MESSAGE_TEXT,
     text: text,

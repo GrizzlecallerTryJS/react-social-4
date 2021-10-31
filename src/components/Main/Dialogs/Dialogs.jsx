@@ -1,16 +1,24 @@
 import React from "react";
 import DialogItemContainer from "./DialogItem/DialogItemContainer";
 import styles from "./Dialogs.module.css";
+import { connect } from "react-redux";
 
-const Dialogs = (props) => {
+const Dialogs = () => {
+  let mstpDialogItemContainer = (state) => {
+    return {
+      dialogsState: state.dialogsPage,
+    };
+  };
+
+  const DialogItemContainerConnect = connect(
+    mstpDialogItemContainer,
+    {}
+  )(DialogItemContainer);
   return (
     <div>
       <div>Dialogs</div>
       <div className={styles.main}>
-        <DialogItemContainer
-          dialogsState={props.dialogsState}
-          dispatch={props.dispatch}
-        />
+        <DialogItemContainerConnect />
       </div>
     </div>
   );

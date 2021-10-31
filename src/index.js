@@ -7,22 +7,18 @@ import App from "./App";
 import store from "./redux/reduxStore";
 import { Provider } from "react-redux";
 
-const rerender = (state) => {
+const rerender = () => {
   ReactDOM.render(
     <Router>
       <Provider store={store}>
-        <App state={state} dispatch={store.dispatch.bind(store)} />
+        <App />
       </Provider>
     </Router>,
     document.getElementById("root")
   );
 };
 
-rerender(store.getState());
-
-store.subscribe(() => {
-  rerender(store.getState());
-});
+rerender();
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

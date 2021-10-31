@@ -1,25 +1,39 @@
 import "./css/App.css";
 import Header from "./components/Header/Header";
-import Navbar from "./components/Navbar/Navbar";
 import Main from "./components/Main/Main";
 import Footer from "./components/Footer/Footer";
 import Sidebar from "./components/Sidebar/Sidebar";
+import { connect } from "react-redux";
+import Navbar from "./components/Navbar/Navbar";
 
-const App = (props) => {
+const App = () => {
+  let mstpMain = (state) => {
+    return {
+      profileState: state.profilePage,
+      dialogsPage: state.dialogsPage,
+    };
+  };
+
+  const MainConnect = connect(mstpMain, {})(Main);
+
+  let mstpNavbar = (state) => {
+    return {
+      navbarState: state.navbarState,
+    };
+  };
+
+  let NavbarConnect = connect(mstpNavbar, {})(Navbar);
+
   return (
     <div className="app_wrapper">
       <div className="header">
         <Header />
       </div>
       <div className="navbar">
-        <Navbar navbarState={props.state.navbarState} />
+        <NavbarConnect />
       </div>
       <div className="main">
-        <Main
-          profileState={props.state.profilePage}
-          dialogsState={props.state.dialogsPage}
-          dispatch={props.dispatch}
-        />
+        <MainConnect />
       </div>
       <div className="footer">
         <Footer />

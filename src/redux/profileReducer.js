@@ -16,13 +16,17 @@ const initialState = {
 };
 
 const profileReducer = (state = initialState, action) => {
+  let stateCopy = { ...state };
+  stateCopy.postData = [...state.postData];
+  stateCopy.tempPostData = { ...state.tempPostData };
+
   switch (action.type) {
     case ADD_POST:
-      _addPostFunc(state);
-      return state;
+      _addPostFunc(stateCopy);
+      return stateCopy;
     case CURRENT_NEW_POST_TEXT:
-      _currentNewPostTextAreaValue(state, action.text);
-      return state;
+      _currentNewPostTextAreaValue(stateCopy, action.text);
+      return stateCopy;
     default:
       return state;
   }

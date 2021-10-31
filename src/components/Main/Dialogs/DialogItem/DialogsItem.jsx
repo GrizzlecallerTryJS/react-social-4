@@ -12,11 +12,7 @@ const DialogsItem = (props) => {
           <MessageItem messages={props.messages} />
         </div>
         <div>
-          <MessageTextAreaContainer
-            textAreaData={props.textAreaData}
-            dispatch={props.dispatch}
-            dialogId={props.id}
-          />
+          <MessageTextAreaContainer dialogId={props.id} />
         </div>
       </div>
     );
