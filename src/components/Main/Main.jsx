@@ -7,15 +7,13 @@ import Music from "./Music/Music";
 import News from "./News/News";
 import People from "./People/People";
 
-const Main = (props) => {
+const Main = () => {
   const ProfileComponent = () => {
     return <Profile />;
   };
 
   const DialogsComponent = () => {
-    return (
-      <Dialogs dialogsState={props.dialogsState} dispatch={props.dispatch} />
-    );
+    return <Dialogs />;
   };
 
   const NewsComponent = () => {
