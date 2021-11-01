@@ -67,6 +67,7 @@ const initialState = {
 
 const dialogsReducer = (state = initialState, action) => {
   let stateCopy = { ...state };
+
   stateCopy.dialogsData = [...state.dialogsData];
   stateCopy.dialogsData.messagesData = [{ ...state.dialogsData.messagesData }];
   stateCopy.tempMessageData = { ...state.tempMessageData };
