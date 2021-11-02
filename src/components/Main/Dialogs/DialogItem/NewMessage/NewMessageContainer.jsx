@@ -1,4 +1,4 @@
-import MessageTextArea from "./MessageTextArea";
+import NewMessage from "./NewMessage";
 import {
   addMessageAC,
   currentNewMessageTextAreaValueAC,
@@ -28,9 +28,9 @@ let mapDispatchToProps = (dispatch) => {
   };
 };
 
-const MessageTextAreaContainer = connect(
+const NewMessageContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(MessageTextArea);
+)(NewMessage);
 
-export default MessageTextAreaContainer;
+export default NewMessageContainer;

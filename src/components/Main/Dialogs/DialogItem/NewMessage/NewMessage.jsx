@@ -1,6 +1,6 @@
 import React from "react";
 
-const MessageTextArea = (props) => {
+const NewMessage = (props) => {
   let textAreaRef = React.createRef();
 
   const onChangeAction = () => {
@@ -31,4 +31,4 @@ const MessageTextArea = (props) => {
   );
 };
 
-export default MessageTextArea;
+export default NewMessage;
