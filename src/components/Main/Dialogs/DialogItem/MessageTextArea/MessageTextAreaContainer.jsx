@@ -5,10 +5,13 @@ import {
   currentNewMessageTextAreaValueAC,
 } from "../../../../../redux/dialogsReducer";
 import { connect } from "react-redux";
+import ButtonSend from "../../../../StandartComponent/Buttons/ButtonSend";
 
 let mapStateToProps = (state) => {
   return {
     textAreaData: state.dialogsPage.tempMessageData.message,
+    ButtonSend,
+    buttonName: "Send Message",
   };
 };
 

@@ -5,10 +5,13 @@ import {
   currentNewPostTextAreaValueAC,
 } from "../../../../../../redux/profileReducer";
 import { connect } from "react-redux";
+import ButtonSend from "../../../../../StandartComponent/Buttons/ButtonSend";
 
 let mapStateToProps = (state) => {
   return {
     textAreaValue: state.profilePage.tempPostData.message,
+    ButtonSend,
+    buttonName: "Add Post",
   };
 };
 

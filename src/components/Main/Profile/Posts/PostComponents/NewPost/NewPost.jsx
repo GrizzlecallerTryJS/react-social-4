@@ -12,6 +12,8 @@ const NewPost = (props) => {
     return props.addPost();
   };
 
+  const ButtonSend = props.ButtonSend;
+
   return (
     <div>
       <p>New post</p>
@@ -22,11 +24,11 @@ const NewPost = (props) => {
           name={`newPost`}
           value={props.textAreaValue}
         />
-        <div>
-          <button onClick={addPostAction} name={`addPost`}>
-            addPost
-          </button>
-        </div>
+
+        <ButtonSend
+          buttonAction={addPostAction}
+          buttonName={props.buttonName}
+        />
       </div>
     </div>
   );
