@@ -1,4 +1,3 @@
-import React from "react";
 import NewPost from "./NewPost";
 import {
   addPostAC,
@@ -6,12 +5,15 @@ import {
 } from "../../../../../../redux/profileReducer";
 import { connect } from "react-redux";
 import ButtonSend from "../../../../../StandartComponent/Buttons/ButtonSend";
+import Textarea from "../../../../../StandartComponent/Textareas/Textarea";
 
 let mapStateToProps = (state) => {
   return {
-    textAreaValue: state.profilePage.tempPostData.message,
-    ButtonSend,
+    textareaValue: state.profilePage.tempPostData.message,
+    ButtonSend: ButtonSend,
     buttonName: "Add Post",
+    Textarea: Textarea,
+    textareaName: "Post textarea",
   };
 };
 
