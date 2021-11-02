@@ -12,6 +12,8 @@ const MessageTextArea = (props) => {
     return props.sendMessage(props.dialogId);
   };
 
+  const ButtonSend = props.ButtonSend;
+
   return (
     <div>
       <textarea
@@ -21,9 +23,10 @@ const MessageTextArea = (props) => {
         value={props.textAreaData}
       />
       <div>
-        <button onClick={sendMessageAction} name={`sendMessage`}>
-          Send
-        </button>
+        <ButtonSend
+          buttonAction={sendMessageAction}
+          buttonName={props.buttonName}
+        />
       </div>
     </div>
   );
