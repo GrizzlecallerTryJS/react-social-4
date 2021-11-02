@@ -13,23 +13,18 @@ const NewPost = (props) => {
   };
 
   const ButtonSend = props.ButtonSend;
+  const Textarea = props.Textarea;
 
   return (
     <div>
       <p>New post</p>
-      <div>
-        <textarea
-          ref={textAreaRef}
-          onChange={onChangeAction}
-          name={`newPost`}
-          value={props.textAreaValue}
-        />
-
-        <ButtonSend
-          buttonAction={addPostAction}
-          buttonName={props.buttonName}
-        />
-      </div>
+      <Textarea
+        textAreaRef={textAreaRef}
+        onChangeAction={onChangeAction}
+        textareaName={props.textareaName}
+        textareaValue={props.textareaValue}
+      />
+      <ButtonSend buttonAction={addPostAction} buttonName={props.buttonName} />
     </div>
   );
 };

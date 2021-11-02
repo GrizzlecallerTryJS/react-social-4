@@ -13,21 +13,20 @@ const MessageTextArea = (props) => {
   };
 
   const ButtonSend = props.ButtonSend;
+  const Textarea = props.Textarea;
 
   return (
     <div>
-      <textarea
-        ref={textAreaRef}
-        name={`newMessage`}
-        onChange={onChangeAction}
-        value={props.textAreaData}
+      <Textarea
+        textAreaRef={textAreaRef}
+        onChangeAction={onChangeAction}
+        textareaName={props.textareaName}
+        textareaValue={props.textareaValue}
       />
-      <div>
-        <ButtonSend
-          buttonAction={sendMessageAction}
-          buttonName={props.buttonName}
-        />
-      </div>
+      <ButtonSend
+        buttonAction={sendMessageAction}
+        buttonName={props.buttonName}
+      />
     </div>
   );
 };
