@@ -1,18 +1,17 @@
-import styles from "./Dialogs_all.module.css";
-import MessageItem from "./MessageItem/MessageItem";
-import MessageTextAreaContainer from "./MessageTextArea/MessageTextAreaContainer";
-import { NavLink, Route } from "react-router-dom";
+import NewMessageContainer from "./NewMessage/NewMessageContainer";
 import React from "react";
+import MessageItem from "./MessageItem/MessageItem";
 
 const DialogsItem = (props) => {
   const MessagesForDialogs = () => {
     return (
-      <div className={styles.messages_item}>
+      <div>
         <div>
-          <MessageItem messages={props.messages} />
+          {" "}
+          <MessageItem messages={props.messagesData} />
         </div>
         <div>
-          <MessageTextAreaContainer dialogId={props.id} />
+          <NewMessageContainer dialogId={props.dialogId} />
         </div>
       </div>
     );
@@ -20,14 +19,7 @@ const DialogsItem = (props) => {
 
   return (
     <div>
-      <NavLink
-        exact
-        to={`/dialogs/${props.id}`}
-        activeClassName={styles.active}
-      >
-        {props.name}
-      </NavLink>
-      <Route path={`/dialogs/${props.id}`} render={MessagesForDialogs} />
+      <MessagesForDialogs />
     </div>
   );
 };
