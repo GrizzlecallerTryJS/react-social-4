@@ -1,18 +1,18 @@
-import styles from "./Dialogs_all.module.css";
+import styles from "./DialogsItem.module.css";
 import MessageItem from "./MessageItem/MessageItem";
-import MessageTextAreaContainer from "./MessageTextArea/MessageTextAreaContainer";
 import { NavLink, Route } from "react-router-dom";
 import React from "react";
+import NewMessageContainer from "./NewMessage/NewMessageContainer";
 
 const DialogsItem = (props) => {
   const MessagesForDialogs = () => {
     return (
       <div className={styles.messages_item}>
         <div>
-          <MessageItem messages={props.messages} />
+          <MessageItem messages={props.messagesData} />
         </div>
         <div>
-          <MessageTextAreaContainer dialogId={props.id} />
+          <NewMessageContainer dialogId={props.id} />
         </div>
       </div>
     );

@@ -2,7 +2,7 @@ import React from "react";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import Posts from "./Posts/Posts";
 
-const Profile = (props) => {
+const Profile = () => {
   return (
     <div>
       <div>Profile</div>

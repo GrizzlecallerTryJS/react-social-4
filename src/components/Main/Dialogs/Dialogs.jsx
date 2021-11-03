@@ -1,24 +1,21 @@
 import React from "react";
-import DialogItemContainer from "./DialogItem/DialogItemContainer";
+import DialogList from "./DialogItem/DialogList";
 import styles from "./Dialogs.module.css";
 import { connect } from "react-redux";
 
 const Dialogs = () => {
-  let mstpDialogItemContainer = (state) => {
+  let mstp = (state) => {
     return {
       dialogsState: state.dialogsPage,
     };
   };
 
-  const DialogItemContainerConnect = connect(
-    mstpDialogItemContainer,
-    {}
-  )(DialogItemContainer);
+  const DialogListContainer = connect(mstp, {})(DialogList);
   return (
     <div>
       <div>Dialogs</div>
       <div className={styles.main}>
-        <DialogItemContainerConnect />
+        <DialogListContainer />
       </div>
     </div>
   );
