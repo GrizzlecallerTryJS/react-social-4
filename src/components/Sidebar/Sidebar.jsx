@@ -1,5 +1,5 @@
-import React from 'react';
-import styles from './Sidebar.module.css';
+import React from "react";
+import styles from "./Sidebar.module.css";
 
 const Sidebar = () => {
   return (
@@ -12,7 +12,7 @@ const Sidebar = () => {
         <div>smth5</div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Sidebar;

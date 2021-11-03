@@ -32,7 +32,7 @@ const Main = () => {
     <div className={styles.main}>
       <div className={styles.content}>
         <Route path={`/profile`} render={ProfileComponent} />
-        <Route path={`/dialogs`} render={DialogsComponent} />
+        <Route exact path={`/dialogs`} render={DialogsComponent} />
         <Route path={`/news`} render={NewsComponent} />
         <Route path={`/music`} render={MusicComponent} />
         <Route path={`/people`} render={PeopleComponent} />
