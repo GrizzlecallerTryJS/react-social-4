@@ -1,6 +1,7 @@
-import { _followFunc } from "./usersFunc/usersFunc";
+import { _followFunc, _setUsers } from "./usersFunc/usersFunc";
 
 const FOLLOW = "FOLLOW";
+const SET_USERS = "SET_USERS";
 
 const initialState = {
   userData: [
@@ -50,6 +51,9 @@ const usersReducer = (state = initialState, action) => {
         }
       });
       return stateCopy;
+    case SET_USERS:
+      _setUsers(stateCopy);
+      return stateCopy;
     default:
       return state;
   }
@@ -62,5 +66,12 @@ export const followAC = (userId, followStatus) => {
     type: FOLLOW,
     userId,
     followStatus,
+  };
+};
+
+export const setUsersAC = (users) => {
+  return {
+    type: SET_USERS,
+    users,
   };
 };

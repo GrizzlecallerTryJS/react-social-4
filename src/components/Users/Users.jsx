@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import UserItemList from "./UserItemList";
-import { followAC } from "../../redux/usersReducer";
+import { followAC, setUsersAC } from "../../redux/usersReducer";
 
 let mstp = (state) => {
   return {
@@ -14,6 +14,9 @@ let mdtp = (dispatch) => {
   return {
     followAction: (userId, followStatus) => {
       dispatch(followAC(userId, followStatus));
+    },
+    setUsers: (users) => {
+      dispatch(setUsersAC(users));
     },
     /*    FollowButton: (action, userId) => {
       dispatch(ActionButton(action, userId));
