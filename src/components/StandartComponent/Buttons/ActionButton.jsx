@@ -1,6 +1,6 @@
 import React from "react";
 
-const ButtonSend = (props) => {
+const ActionButton = (props) => {
   return (
     <div>
       <button onClick={props.buttonAction} name={props.buttonName}>
@@ -10,4 +10,4 @@ const ButtonSend = (props) => {
   );
 };
 
-export default ButtonSend;
+export default ActionButton;

@@ -6,6 +6,7 @@ const initialState = {
     { name: "Music", id: 4 },
     { name: "People", id: 5 },
     { name: "Friends", id: 6 },
+    { name: "Users", id: 7 },
   ],
   actualFriends: [
     {

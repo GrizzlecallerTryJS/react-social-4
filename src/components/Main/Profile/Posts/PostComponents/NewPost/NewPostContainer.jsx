@@ -4,13 +4,13 @@ import {
   currentNewPostTextAreaValueAC,
 } from "../../../../../../redux/profileReducer";
 import { connect } from "react-redux";
-import ButtonSend from "../../../../../StandartComponent/Buttons/ButtonSend";
+import ActionButton from "../../../../../StandartComponent/Buttons/ActionButton";
 import Textarea from "../../../../../StandartComponent/Textareas/Textarea";
 
 let mapStateToProps = (state) => {
   return {
     textareaValue: state.profilePage.tempPostData.message,
-    ButtonSend: ButtonSend,
+    ButtonSend: ActionButton,
     buttonName: "Add Post",
     Textarea: Textarea,
     textareaName: "Post textarea",

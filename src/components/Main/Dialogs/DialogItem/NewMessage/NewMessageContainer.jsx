@@ -4,13 +4,13 @@ import {
   currentNewMessageTextAreaValueAC,
 } from "../../../../../redux/dialogsReducer";
 import { connect } from "react-redux";
-import ButtonSend from "../../../../StandartComponent/Buttons/ButtonSend";
+import ActionButton from "../../../../StandartComponent/Buttons/ActionButton";
 import Textarea from "../../../../StandartComponent/Textareas/Textarea";
 
 let mapStateToProps = (state) => {
   return {
     textareaValue: state.dialogsPage.tempMessageData.message,
-    ButtonSend: ButtonSend,
+    ButtonSend: ActionButton,
     buttonName: "Send Message",
     Textarea: Textarea,
     textareaName: "Message textarea",
