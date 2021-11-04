@@ -41,10 +41,14 @@ const initialState = {
 };
 
 const usersReducer = (state = initialState, action) => {
-  let stateCopy = { ...state };
+  let stateCopy = { ...state, userData: state.userData.map((user) => user) };
   switch (action.type) {
     case FOLLOW:
-      _followFunc(stateCopy, action.userId, action.followStatus);
+      stateCopy.userData.map((user) => {
+        if (user.id === action.userId) {
+          _followFunc(user, action.followStatus);
+        }
+      });
       return stateCopy;
     default:
       return state;
@@ -56,7 +60,7 @@ export default usersReducer;
 export const followAC = (userId, followStatus) => {
   return {
     type: FOLLOW,
-    userId: userId,
-    followStatus: followStatus,
+    userId,
+    followStatus,
   };
 };
