@@ -4,55 +4,61 @@ const FOLLOW = "FOLLOW";
 const SET_USERS = "SET_USERS";
 
 const initialState = {
-  userData: [
+  users: [
     {
       id: 1,
       firstName: "Kolya",
       lastName: "Lupkin",
+      photos: {
+        small: null,
+        large: null,
+      },
       age: 18,
-      country: "russia",
-      city: "moscow",
       status: "type status here",
       avatar: "",
-      followStatus: false,
+      followed: false,
     },
     {
       id: 2,
       firstName: "agdfg",
       lastName: "dfg",
+      photos: {
+        small: null,
+        large: null,
+      },
       age: 47,
-      country: "russia",
-      city: "moscow",
       status: "type status here",
       avatar: "",
-      followStatus: false,
+      followed: false,
     },
     {
       id: 3,
       firstName: "iiii",
       lastName: "Lupkooooin",
+      photos: {
+        small: null,
+        large: null,
+      },
       age: 56,
-      country: "russia",
-      city: "moscow",
       status: "type status here",
       avatar: "",
-      followStatus: false,
+      followed: false,
     },
   ],
 };
 
 const usersReducer = (state = initialState, action) => {
-  let stateCopy = { ...state, userData: state.userData.map((user) => user) };
+  let stateCopy = { ...state, users: state.users.map((user) => user) };
   switch (action.type) {
     case FOLLOW:
-      stateCopy.userData.map((user) => {
+      stateCopy.users.map((user) => {
         if (user.id === action.userId) {
-          _followFunc(user, action.followStatus);
+          _followFunc(user, action.followed);
         }
       });
       return stateCopy;
     case SET_USERS:
-      _setUsers(stateCopy);
+      _setUsers(stateCopy, action.users);
       return stateCopy;
     default:
       return state;
@@ -61,11 +67,11 @@ const usersReducer = (state = initialState, action) => {
 
 export default usersReducer;
 
-export const followAC = (userId, followStatus) => {
+export const followAC = (userId, followed) => {
   return {
     type: FOLLOW,
     userId,
-    followStatus,
+    followed,
   };
 };
 
