@@ -5,15 +5,15 @@ import { followAC, setUsersAC } from "../../redux/usersReducer";
 
 let mstp = (state) => {
   return {
-    userData: state.usersState.userData,
+    users: state.usersState.users,
     buttonName: "Follow",
   };
 };
 
 let mdtp = (dispatch) => {
   return {
-    followAction: (userId, followStatus) => {
-      dispatch(followAC(userId, followStatus));
+    followAction: (userId, followed) => {
+      dispatch(followAC(userId, followed));
     },
     setUsers: (users) => {
       dispatch(setUsersAC(users));

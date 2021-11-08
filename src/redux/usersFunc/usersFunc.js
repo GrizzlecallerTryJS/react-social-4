@@ -1,11 +1,14 @@
-export const _followFunc = (user, followStatus) => {
-  if (user.followStatus === followStatus) {
-    user.followStatus = !followStatus;
+export const _followFunc = (user, followed) => {
+  debugger;
+  if (user.followed === followed) {
+    user.followed = !followed;
   }
 };
 
 export const _setUsers = (stateCopy, users) => {
-  if (stateCopy.users.length === 0) {
-    stateCopy.users = users;
-  }
+  /*  if (stateCopy.users.length === 0) {
+
+  }*/
+  debugger;
+  stateCopy.users = users;
 };
