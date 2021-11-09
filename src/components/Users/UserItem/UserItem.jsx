@@ -14,6 +14,7 @@ const UserItem = (props) => {
       <div>
         <div className={styles.userPhoto}>
           <img
+            alt={"user"}
             src={
               props.photos.small !== null ? props.photos.small : defaultAvatar
             }

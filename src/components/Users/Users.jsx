@@ -1,16 +1,16 @@
 import React from "react";
 import { connect } from "react-redux";
-import UserItemList from "./UserItemList";
 import { followAC, setUsersAC } from "../../redux/usersReducer";
+import UsersClass from "./UsersClass";
 
-let mstp = (state) => {
+let mapStateToProps = (state) => {
   return {
     users: state.usersState.users,
     buttonName: "Follow",
   };
 };
 
-let mdtp = (dispatch) => {
+let mapDispatchToProps = (dispatch) => {
   return {
     followAction: (userId, followed) => {
       dispatch(followAC(userId, followed));
@@ -24,7 +24,10 @@ let mdtp = (dispatch) => {
   };
 };
 
-const UserItemContainer = connect(mstp, mdtp)(UserItemList);
+const UserItemContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(UsersClass);
 
 const Users = () => {
   return <UserItemContainer />;
