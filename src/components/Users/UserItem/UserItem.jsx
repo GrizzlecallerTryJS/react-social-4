@@ -1,16 +1,9 @@
 import React from "react";
-import axios from "axios";
 import styles from "./UserItem.module.css";
 import defaultAvatar from "../../../default/images/defaultAvatar.png";
 
 const UserItem = (props) => {
   /*const FollowButton = props.FollowButton;*/
-
-  axios
-    .get("https://social-network.samuraijs.com/api/1.0/users")
-    .then((response) => {
-      props.setUsers(response.data.items);
-    });
 
   const follow = () => {
     return props.followAction(props.id, props.followed);

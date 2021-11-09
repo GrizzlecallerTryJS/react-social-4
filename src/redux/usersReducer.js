@@ -6,43 +6,17 @@ const SET_USERS = "SET_USERS";
 const initialState = {
   users: [
     {
-      id: 1,
-      firstName: "Kolya",
-      lastName: "Lupkin",
+      id: null,
+      firstName: null,
+      lastName: null,
       photos: {
         small: null,
         large: null,
       },
-      age: 18,
-      status: "type status here",
-      avatar: "",
-      followed: false,
-    },
-    {
-      id: 2,
-      firstName: "agdfg",
-      lastName: "dfg",
-      photos: {
-        small: null,
-        large: null,
-      },
-      age: 47,
-      status: "type status here",
-      avatar: "",
-      followed: false,
-    },
-    {
-      id: 3,
-      firstName: "iiii",
-      lastName: "Lupkooooin",
-      photos: {
-        small: null,
-        large: null,
-      },
-      age: 56,
-      status: "type status here",
-      avatar: "",
-      followed: false,
+      age: null,
+      status: null,
+      avatar: null,
+      followed: null,
     },
   ],
 };
