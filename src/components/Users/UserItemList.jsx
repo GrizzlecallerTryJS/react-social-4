@@ -3,7 +3,6 @@ import UserItem from "./UserItem/UserItem";
 import getUsers from "./GetUsers";
 
 const UserItemList = (props) => {
-  debugger;
   if (props.users.length === 0) {
     return (
       <div>
