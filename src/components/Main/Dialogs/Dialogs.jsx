@@ -4,13 +4,13 @@ import styles from "./Dialogs.module.css";
 import { connect } from "react-redux";
 
 const Dialogs = () => {
-  let mstp = (state) => {
+  let mapStateToProps = (state) => {
     return {
       dialogsState: state.dialogsPage,
     };
   };
 
-  const DialogListContainer = connect(mstp, {})(DialogList);
+  const DialogListContainer = connect(mapStateToProps, {})(DialogList);
   return (
     <div>
       <div>Dialogs</div>

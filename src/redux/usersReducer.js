@@ -4,28 +4,14 @@ const FOLLOW = "FOLLOW";
 const SET_USERS = "SET_USERS";
 
 const initialState = {
-  users: [
-    {
-      id: null,
-      firstName: null,
-      lastName: null,
-      photos: {
-        small: null,
-        large: null,
-      },
-      age: null,
-      status: null,
-      avatar: null,
-      followed: null,
-    },
-  ],
+  users: [],
 };
 
 const usersReducer = (state = initialState, action) => {
   let stateCopy = { ...state, users: state.users.map((user) => user) };
   switch (action.type) {
     case FOLLOW:
-      stateCopy.users.map((user) => {
+      stateCopy.users.forEach((user) => {
         if (user.id === action.userId) {
           _followFunc(user, action.followed);
         }

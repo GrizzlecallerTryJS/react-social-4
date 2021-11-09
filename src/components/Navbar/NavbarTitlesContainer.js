@@ -1,12 +1,12 @@
 import { connect } from "react-redux";
 import NavbarTitles from "./NavbarTitles";
 
-let mstp = (state) => {
+let mapStateToProps = (state) => {
   return {
     navbarTitles: state.navbarState.title,
   };
 };
 
-let NavbarTitlesContainer = connect(mstp, {})(NavbarTitles);
+let NavbarTitlesContainer = connect(mapStateToProps, {})(NavbarTitles);
 
 export default NavbarTitlesContainer;
