@@ -10,6 +10,9 @@ import UsersClass from "./UsersClass";
 let mapStateToProps = (state) => {
   return {
     users: state.usersState.users,
+    totalCount: state.usersState.totalCount,
+    usersOnPageCount: state.usersState.usersOnPageCount,
+    pagesCount: state.usersState.pagesCount,
     buttonName: "Follow",
   };
 };
