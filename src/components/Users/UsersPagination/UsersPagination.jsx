@@ -1,25 +1,25 @@
 import React from "react";
 import axios from "axios";
-import { setUsersAC } from "../../../redux/usersReducer";
 import { NavLink } from "react-router-dom";
 
 const UsersPagination = (props) => {
-  let item = [];
+  let pages = [];
   for (let i = 1; i < props.pagesCount / 100; i++) {
-    item[i - 1] = i;
+    pages[i - 1] = i;
   }
 
   let getU = (item) => {
     axios
       .get(`https://social-network.samuraijs.com/api/1.0/users/?page=${item}`)
       .then((response) => {
-        setUsersAC(response.data.items);
+        props.setUsers(response.data.items);
+        props.setCurrentPage(item);
       });
   };
 
   return (
     <div>
-      {item.map((item) => (
+      {pages.map((item) => (
         <span
           onClick={() => {
             getU(item);

@@ -5,7 +5,6 @@ export const _followFunc = (user, followed) => {
 };
 
 export const _setUsers = (stateCopy, users) => {
-  debugger;
   if (users !== null && users !== undefined) {
     stateCopy.users = users;
   }
@@ -16,4 +15,10 @@ export const _setTotalCount = (stateCopy, totalCount) => {
     stateCopy.totalCount = totalCount;
   }
   stateCopy.pagesCount = Math.ceil(totalCount / stateCopy.usersOnPageCount);
+};
+
+export const _setCurrentPage = (stateCopy, currentPagw) => {
+  if (currentPagw) {
+    stateCopy.currentPage = currentPagw;
+  }
 };

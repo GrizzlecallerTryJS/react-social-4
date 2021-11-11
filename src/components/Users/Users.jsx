@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import {
   followAC,
+  setCurrentPageAC,
   setTotalCountAC,
   setUsersAC,
 } from "../../redux/usersReducer";
@@ -27,6 +28,9 @@ let mapDispatchToProps = (dispatch) => {
     },
     setTotalCount: (totalCount) => {
       dispatch(setTotalCountAC(totalCount));
+    },
+    setCurrentPage: (currentPagw) => {
+      dispatch(setCurrentPageAC(currentPagw));
     },
     /*    FollowButton: (action, userId) => {
       dispatch(ActionButton(action, userId));

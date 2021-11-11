@@ -5,7 +5,11 @@ import UsersPagination from "./UsersPagination/UsersPagination";
 const UserItemList = (props) => {
   return (
     <div>
-      <UsersPagination pagesCount={props.pagesCount} />
+      <UsersPagination
+        pagesCount={props.pagesCount}
+        setCurrentPage={props.setCurrentPage}
+        setUsers={props.setUsers}
+      />
       <div>
         {props.users.map((item) => (
           <UserItem
