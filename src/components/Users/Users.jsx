@@ -1,6 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
-import { followAC, setUsersAC } from "../../redux/usersReducer";
+import {
+  followAC,
+  setTotalCountAC,
+  setUsersAC,
+} from "../../redux/usersReducer";
 import UsersClass from "./UsersClass";
 
 let mapStateToProps = (state) => {
@@ -17,6 +21,9 @@ let mapDispatchToProps = (dispatch) => {
     },
     setUsers: (users) => {
       dispatch(setUsersAC(users));
+    },
+    setTotalCount: (totalCount) => {
+      dispatch(setTotalCountAC(totalCount));
     },
     /*    FollowButton: (action, userId) => {
       dispatch(ActionButton(action, userId));

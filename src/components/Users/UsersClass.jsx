@@ -8,6 +8,7 @@ class UsersClass extends React.Component {
       .get("https://social-network.samuraijs.com/api/1.0/users")
       .then((response) => {
         this.props.setUsers(response.data.items);
+        this.props.setTotalCount(response.data.totalCount);
       });
   }
 

@@ -1,10 +1,12 @@
-import { _followFunc, _setUsers } from "./usersFunc/usersFunc";
+import { _followFunc, _setTotalCount, _setUsers } from "./usersFunc/usersFunc";
 
 const FOLLOW = "FOLLOW";
 const SET_USERS = "SET_USERS";
+const SET_TOTAL_COUNT = "SET_TOTAL_COUNT";
 
 const initialState = {
   users: [],
+  totalCount: null,
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -19,6 +21,9 @@ const usersReducer = (state = initialState, action) => {
       return stateCopy;
     case SET_USERS:
       _setUsers(stateCopy, action.users);
+      return stateCopy;
+    case SET_TOTAL_COUNT:
+      _setTotalCount(stateCopy, action.totalCount);
       return stateCopy;
     default:
       return state;
@@ -39,5 +44,12 @@ export const setUsersAC = (users) => {
   return {
     type: SET_USERS,
     users,
+  };
+};
+
+export const setTotalCountAC = (totalCount) => {
+  return {
+    type: SET_TOTAL_COUNT,
+    totalCount,
   };
 };
