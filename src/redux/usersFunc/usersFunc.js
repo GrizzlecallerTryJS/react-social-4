@@ -17,9 +17,9 @@ export const _setTotalCount = (stateCopy, totalCount) => {
   stateCopy.pagesCount = Math.ceil(totalCount / stateCopy.usersOnPageCount);
 };
 
-export const _setCurrentPage = (stateCopy, currentPagw) => {
-  if (currentPagw) {
-    stateCopy.currentPage = currentPagw;
+export const _setCurrentPage = (stateCopy, currentPage) => {
+  if (currentPage) {
+    stateCopy.currentPage = currentPage;
   }
 };
 
