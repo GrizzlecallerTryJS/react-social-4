@@ -11,7 +11,9 @@ const UsersPagination = (props) => {
 
   let getU = (item) => {
     axios
-      .get(`https://social-network.samuraijs.com/api/1.0/users/?page=${item}`)
+      .get(
+        `https://social-network.samuraijs.com/api/1.0/users/?page=${item}&count=${props.usersOnPageCount}`
+      )
       .then((response) => {
         props.setUsers(response.data.items);
         props.setCurrentPage(item);

@@ -5,7 +5,9 @@ import axios from "axios";
 class UsersClass extends React.Component {
   componentDidMount() {
     axios
-      .get("https://social-network.samuraijs.com/api/1.0/users")
+      .get(
+        `https://social-network.samuraijs.com/api/1.0/users?count=${this.props.usersOnPageCount}`
+      )
       .then((response) => {
         this.props.setUsers(response.data.items);
         this.props.setTotalCount(response.data.totalCount);
