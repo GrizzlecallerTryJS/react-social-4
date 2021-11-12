@@ -1,6 +1,7 @@
 import React from "react";
 import UserItemList from "./UserItemList";
 import axios from "axios";
+import Preloader from "../StandartComponent/Preloader/Preloader";
 
 class UsersClass extends React.Component {
   componentDidMount() {
@@ -29,7 +30,7 @@ class UsersClass extends React.Component {
 
   render() {
     if (this.props.isFetching) {
-      return "asdfads";
+      return <Preloader />;
     } else {
       return <UserItemList {...this.props} getUsers={this.getUsers} />;
     }
