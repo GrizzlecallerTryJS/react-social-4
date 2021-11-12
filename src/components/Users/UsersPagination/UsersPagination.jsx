@@ -9,7 +9,7 @@ const UsersPagination = (props) => {
     pages[i - 1] = i;
   }
 
-  let getU = (item) => {
+  let getUsers = (item) => {
     props.setCurrentPage(item);
     axios
       .get(
@@ -26,7 +26,7 @@ const UsersPagination = (props) => {
         <span
           className={styles.item}
           onClick={() => {
-            getU(item);
+            getUsers(item);
           }}
         >
           <NavLink exact to={`/users/${item}`} activeClassName={styles.active}>
