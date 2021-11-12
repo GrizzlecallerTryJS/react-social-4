@@ -1,6 +1,7 @@
 import {
   _followFunc,
   _setCurrentPage,
+  _setIsFetching,
   _setTotalCount,
   _setUsers,
 } from "./usersFunc/usersFunc";
@@ -9,6 +10,7 @@ const FOLLOW = "FOLLOW";
 const SET_USERS = "SET_USERS";
 const SET_TOTAL_COUNT = "SET_TOTAL_COUNT";
 const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
+const SET_IS_FETCHING = "SET_IS_FETCHING";
 
 const initialState = {
   users: [],
@@ -16,6 +18,7 @@ const initialState = {
   usersOnPageCount: 5,
   pagesCount: null,
   currentPage: 1,
+  isFetching: false,
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -40,6 +43,10 @@ const usersReducer = (state = initialState, action) => {
     case SET_CURRENT_PAGE:
       stateCopy = { ...state };
       _setCurrentPage(stateCopy, action.currentPage);
+      return stateCopy;
+    case SET_IS_FETCHING:
+      stateCopy = { ...state };
+      _setIsFetching(stateCopy, action.is);
       return stateCopy;
     default:
       return state;
@@ -74,5 +81,12 @@ export const setCurrentPageAC = (currentPage) => {
   return {
     type: SET_CURRENT_PAGE,
     currentPage,
+  };
+};
+
+export const setIsFetchingAC = (is) => {
+  return {
+    type: SET_IS_FETCHING,
+    is,
   };
 };

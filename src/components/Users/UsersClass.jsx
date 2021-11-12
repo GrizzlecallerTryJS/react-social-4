@@ -4,6 +4,7 @@ import axios from "axios";
 
 class UsersClass extends React.Component {
   componentDidMount() {
+    this.props.setIsFetchingAC(true);
     axios
       .get(
         `https://social-network.samuraijs.com/api/1.0/users?count=${this.props.usersOnPageCount}`
@@ -11,6 +12,7 @@ class UsersClass extends React.Component {
       .then((response) => {
         this.props.setUsers(response.data.items);
         this.props.setTotalCount(response.data.totalCount);
+        this.props.setIsFetchingAC(false);
       });
   }
 
@@ -26,7 +28,11 @@ class UsersClass extends React.Component {
   };
 
   render() {
-    return <UserItemList {...this.props} getUsers={this.getUsers} />;
+    if (this.props.isFetching) {
+      return "asdfads";
+    } else {
+      return <UserItemList {...this.props} getUsers={this.getUsers} />;
+    }
   }
 }
 

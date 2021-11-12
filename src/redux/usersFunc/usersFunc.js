@@ -22,3 +22,9 @@ export const _setCurrentPage = (stateCopy, currentPagw) => {
     stateCopy.currentPage = currentPagw;
   }
 };
+
+export const _setIsFetching = (stateCopy, is) => {
+  if (is !== null || is !== undefined) {
+    stateCopy.isFetching = is;
+  }
+};
