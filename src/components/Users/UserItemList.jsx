@@ -9,6 +9,8 @@ const UserItemList = (props) => {
         pagesCount={props.pagesCount}
         setCurrentPage={props.setCurrentPage}
         setUsers={props.setUsers}
+        currentPage={props.currentPage}
+        usersOnPageCount={props.usersOnPageCount}
       />
       <div>
         {props.users.map((item) => (

@@ -13,7 +13,7 @@ const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
 const initialState = {
   users: [],
   totalCount: null,
-  usersOnPageCount: 10,
+  usersOnPageCount: 5,
   pagesCount: null,
   currentPage: 1,
 };
