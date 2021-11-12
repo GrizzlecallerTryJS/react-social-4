@@ -11,6 +11,7 @@ const UserItemList = (props) => {
         setUsers={props.setUsers}
         currentPage={props.currentPage}
         usersOnPageCount={props.usersOnPageCount}
+        getUsers={props.getUsers}
       />
       <div>
         {props.users.map((item) => (

@@ -14,8 +14,19 @@ class UsersClass extends React.Component {
       });
   }
 
+  getUsers = (item) => {
+    this.props.setCurrentPage(item);
+    axios
+      .get(
+        `https://social-network.samuraijs.com/api/1.0/users/?page=${item}&count=${this.props.usersOnPageCount}`
+      )
+      .then((response) => {
+        this.props.setUsers(response.data.items);
+      });
+  };
+
   render() {
-    return <UserItemList {...this.props} />;
+    return <UserItemList {...this.props} getUsers={this.getUsers} />;
   }
 }
 
