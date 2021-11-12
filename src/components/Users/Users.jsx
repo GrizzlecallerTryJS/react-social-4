@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import {
   followAC,
   setCurrentPageAC,
+  setIsFetchingAC,
   setTotalCountAC,
   setUsersAC,
 } from "../../redux/usersReducer";
@@ -16,6 +17,7 @@ let mapStateToProps = (state) => {
     pagesCount: state.usersState.pagesCount,
     buttonName: "Follow",
     currentPage: state.usersState.currentPage,
+    isFetching: state.usersState.isFetching,
   };
 };
 
@@ -32,6 +34,9 @@ let mapDispatchToProps = (dispatch) => {
     },
     setCurrentPage: (currentPagw) => {
       dispatch(setCurrentPageAC(currentPagw));
+    },
+    setIsFetchingAC: (fetchingStatus) => {
+      dispatch(setIsFetchingAC(fetchingStatus));
     },
     /*    FollowButton: (action, userId) => {
       dispatch(ActionButton(action, userId));
