@@ -18,6 +18,7 @@ class UsersClass extends React.Component {
   }
 
   getUsers = (item) => {
+    this.props.setIsFetchingAC(true);
     this.props.setCurrentPage(item);
     axios
       .get(
@@ -25,6 +26,7 @@ class UsersClass extends React.Component {
       )
       .then((response) => {
         this.props.setUsers(response.data.items);
+        this.props.setIsFetchingAC(false);
       });
   };
 
