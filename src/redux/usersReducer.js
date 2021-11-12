@@ -46,7 +46,7 @@ const usersReducer = (state = initialState, action) => {
       return stateCopy;
     case SET_IS_FETCHING:
       stateCopy = { ...state };
-      _setIsFetching(stateCopy, action.is);
+      _setIsFetching(stateCopy, action.fetchingStatus);
       return stateCopy;
     default:
       return state;
@@ -84,9 +84,9 @@ export const setCurrentPageAC = (currentPage) => {
   };
 };
 
-export const setIsFetchingAC = (is) => {
+export const setIsFetchingAC = (fetchingStatus) => {
   return {
     type: SET_IS_FETCHING,
-    is,
+    fetchingStatus,
   };
 };

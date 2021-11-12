@@ -35,8 +35,8 @@ let mapDispatchToProps = (dispatch) => {
     setCurrentPage: (currentPagw) => {
       dispatch(setCurrentPageAC(currentPagw));
     },
-    setIsFetchingAC: (isFetching) => {
-      dispatch(setIsFetchingAC(isFetching));
+    setIsFetchingAC: (fetchingStatus) => {
+      dispatch(setIsFetchingAC(fetchingStatus));
     },
     /*    FollowButton: (action, userId) => {
       dispatch(ActionButton(action, userId));
