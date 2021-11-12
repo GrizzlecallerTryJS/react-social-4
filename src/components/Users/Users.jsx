@@ -15,6 +15,7 @@ let mapStateToProps = (state) => {
     usersOnPageCount: state.usersState.usersOnPageCount,
     pagesCount: state.usersState.pagesCount,
     buttonName: "Follow",
+    currentPage: state.usersState.currentPage,
   };
 };
 

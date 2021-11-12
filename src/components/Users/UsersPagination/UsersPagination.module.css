@@ -1,0 +1,13 @@
+.item {
+  color: antiquewhite;
+  padding: 5px;
+}
+
+.item a {
+  color: aliceblue;
+  text-decoration: none;
+}
+
+.item a.active {
+  color: darkmagenta;
+}
