@@ -43,7 +43,11 @@ class HeaderContainer extends React.Component {
           />
         </div>
         <div className={styles.logonBlock}>
-          <NavLink to={`/login`}>{this.props.userData.login}</NavLink>
+          {this.props.userData ? (
+            <NavLink to={`/Profile`}>{this.props.userData.login}</NavLink>
+          ) : (
+            <NavLink to={`/login`}>Login</NavLink>
+          )}
         </div>
       </div>
     );
