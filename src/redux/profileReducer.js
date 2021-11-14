@@ -1,12 +1,14 @@
 import {
   _addPostFunc,
   _currentNewPostTextAreaValue,
+  _setUserId,
   _setUserProfile,
 } from "./profileFunc/profileFunc";
 
 const ADD_POST = "ADD_POST";
 const CURRENT_NEW_POST_TEXT = "CURRENT_NEW_POST_TEXT";
 const SET_USER_PROFILE = "SET_USER_PROFILE";
+const SET_USER_ID = "SET_USER_ID";
 
 const initialState = {
   /*profileData: {
@@ -61,6 +63,9 @@ const profileReducer = (state = initialState, action) => {
     case SET_USER_PROFILE:
       _setUserProfile(stateCopy, action.profile);
       return stateCopy;
+    case SET_USER_ID:
+      _setUserId(stateCopy, action.userId);
+      return stateCopy;
     default:
       return state;
   }
@@ -83,6 +88,13 @@ export const setUserProfileAC = (profile) => {
   return {
     type: SET_USER_PROFILE,
     profile,
+  };
+};
+
+export const setUserIdAC = (userId) => {
+  return {
+    type: SET_USER_ID,
+    userId,
   };
 };
 
