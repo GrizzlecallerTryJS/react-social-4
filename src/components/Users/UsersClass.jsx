@@ -5,7 +5,7 @@ import Preloader from "../StandartComponent/Preloader/Preloader";
 
 class UsersClass extends React.Component {
   componentDidMount() {
-    this.props.setIsFetchingAC(true);
+    this.props.setIsFetching(true);
     axios
       .get(
         `https://social-network.samuraijs.com/api/1.0/users?count=${this.props.usersOnPageCount}`
@@ -13,12 +13,12 @@ class UsersClass extends React.Component {
       .then((response) => {
         this.props.setUsers(response.data.items);
         this.props.setTotalCount(response.data.totalCount);
-        this.props.setIsFetchingAC(false);
+        this.props.setIsFetching(false);
       });
   }
 
   getUsers = (item) => {
-    this.props.setIsFetchingAC(true);
+    this.props.setIsFetching(true);
     this.props.setCurrentPage(item);
     axios
       .get(
@@ -26,7 +26,7 @@ class UsersClass extends React.Component {
       )
       .then((response) => {
         this.props.setUsers(response.data.items);
-        this.props.setIsFetchingAC(false);
+        this.props.setIsFetching(false);
       });
   };
 
