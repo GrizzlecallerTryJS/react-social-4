@@ -11,27 +11,6 @@ const SET_USER_PROFILE = "SET_USER_PROFILE";
 const SET_USER_ID = "SET_USER_ID";
 
 const initialState = {
-  /*profileData: {
-    aboutMe: null,
-    contacts: {
-      facebook: null,
-      website: null,
-      vk: null,
-      twitter: null,
-      instagram: null,
-      youtube: null,
-      github: null,
-      mainLink: null,
-    },
-    lookingForAJob: false,
-    lookingForAJobDescription: null,
-    fullName: "dylebedev",
-    userId: 8184,
-    photos: {
-      small: null,
-      large: null,
-    },
-  },*/
   profileData: null,
   postData: [
     { id: 1, message: "first", likesCount: 4 },
@@ -45,11 +24,6 @@ const initialState = {
 
 const profileReducer = (state = initialState, action) => {
   let stateCopy = { ...state };
-  /*  stateCopy.profileData = {
-    ...state.profileData,
-    contacts: { ...state.profileData.contacts },
-    photos: { ...state.profileData.photos },
-  };*/
   stateCopy.postData = [...state.postData];
   stateCopy.tempPostData = { ...state.tempPostData };
 
