@@ -13,3 +13,8 @@
 .logonBlock {
   float: right;
 }
+
+.logonBlock a {
+  color: aliceblue;
+  text-decoration: none;
+}
