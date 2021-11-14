@@ -36,7 +36,7 @@ const Main = () => {
   return (
     <div className={styles.main}>
       <div className={styles.content}>
-        <Route path={`/profile`} render={ProfileComponent} />
+        <Route exact path={`/profile`} render={ProfileComponent} />
         <Route path={`/dialogs`} render={DialogsComponent} />
         <Route path={`/news`} render={NewsComponent} />
         <Route path={`/music`} render={MusicComponent} />

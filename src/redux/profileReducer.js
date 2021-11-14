@@ -37,6 +37,7 @@ const initialState = {
   ],
   tempPostData: { message: "" },
   userId: null,
+  defaultId: 8184,
 };
 
 const profileReducer = (state = initialState, action) => {

@@ -7,7 +7,6 @@ import defaultProfileAvatar from "../../../default/images/defaultProfileAvatar.p
 let mapDispatchToProps = (store) => {
   return {
     userProfile: store.profilePage.profileData,
-    userId: store.profilePage.userId,
     defaultProfileAvatar,
   };
 };
