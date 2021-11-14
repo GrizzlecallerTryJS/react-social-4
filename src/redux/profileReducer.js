@@ -9,7 +9,7 @@ const CURRENT_NEW_POST_TEXT = "CURRENT_NEW_POST_TEXT";
 const SET_USER_PROFILE = "SET_USER_PROFILE";
 
 const initialState = {
-  profileData: {
+  /*profileData: {
     aboutMe: null,
     contacts: {
       facebook: null,
@@ -29,7 +29,8 @@ const initialState = {
       small: null,
       large: null,
     },
-  },
+  },*/
+  profileData: null,
   postData: [
     { id: 1, message: "first", likesCount: 4 },
     { id: 2, message: "second", likesCount: 6 },
@@ -42,11 +43,11 @@ const initialState = {
 
 const profileReducer = (state = initialState, action) => {
   let stateCopy = { ...state };
-  stateCopy.profileData = {
+  /*  stateCopy.profileData = {
     ...state.profileData,
     contacts: { ...state.profileData.contacts },
     photos: { ...state.profileData.photos },
-  };
+  };*/
   stateCopy.postData = [...state.postData];
   stateCopy.tempPostData = { ...state.tempPostData };
 
