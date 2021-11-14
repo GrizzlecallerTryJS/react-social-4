@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./UserItem.module.css";
 import defaultAvatar from "../../../default/images/defaultAvatar.png";
+import { NavLink } from "react-router-dom";
 
 const UserItem = (props) => {
   /*const FollowButton = props.FollowButton;*/
@@ -18,12 +19,16 @@ const UserItem = (props) => {
       <div>
         <div className={styles.userPhoto}>
           <span onClick={openUserProfile}>
-            <img
-              alt={"user"}
-              src={
-                props.photos.small !== null ? props.photos.small : defaultAvatar
-              }
-            />
+            <NavLink to={`/profile/${props.id}`}>
+              <img
+                alt={"user"}
+                src={
+                  props.photos.small !== null
+                    ? props.photos.small
+                    : defaultAvatar
+                }
+              />
+            </NavLink>
           </span>
         </div>
         <div>{props.name}</div>
