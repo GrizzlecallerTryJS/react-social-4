@@ -9,16 +9,22 @@ const UserItem = (props) => {
     return props.followAction(props.id, props.followed);
   };
 
+  const openUserProfile = () => {
+    return props.getUserById(props.id);
+  };
+
   return (
     <div>
       <div>
         <div className={styles.userPhoto}>
-          <img
-            alt={"user"}
-            src={
-              props.photos.small !== null ? props.photos.small : defaultAvatar
-            }
-          />
+          <span onClick={openUserProfile}>
+            <img
+              alt={"user"}
+              src={
+                props.photos.small !== null ? props.photos.small : defaultAvatar
+              }
+            />
+          </span>
         </div>
         <div>{props.name}</div>
         <div>{props.age}</div>

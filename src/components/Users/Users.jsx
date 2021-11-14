@@ -8,6 +8,7 @@ import {
   setUsersAC,
 } from "../../redux/usersReducer";
 import UsersClass from "./UsersClass";
+import { setUserProfileAC } from "../../redux/profileReducer";
 
 let mapStateToProps = (state) => {
   return {
@@ -37,6 +38,9 @@ let mapDispatchToProps = (dispatch) => {
     },
     setIsFetching: (fetchingStatus) => {
       dispatch(setIsFetchingAC(fetchingStatus));
+    },
+    setUserProfile: (userProfile) => {
+      dispatch(setUserProfileAC(userProfile));
     },
     /*    FollowButton: (action, userId) => {
       dispatch(ActionButton(action, userId));

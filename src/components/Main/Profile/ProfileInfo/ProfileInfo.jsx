@@ -1,13 +1,13 @@
 import React from "react";
-import styles from "../Profile.module.css";
 import ProfileImage from "./ProfileImage";
+import ProfileInfoItems from "./ProfileInfoItems";
 
-const ProfileInfo = () => {
+const ProfileInfo = (props) => {
   return (
     <div>
-      <ProfileImage />
+      <ProfileImage defaultProfileAvatar={props.defaultProfileAvatar} />
       <div>
-        <div className={styles.about}>avatar + desc</div>
+        <ProfileInfoItems {...props} />
       </div>
     </div>
   );
