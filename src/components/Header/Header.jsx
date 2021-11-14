@@ -8,6 +8,7 @@ import { NavLink } from "react-router-dom";
 let mapStateToProps = (state) => {
   return {
     userData: state.authState.userData,
+    isAuth: state.authState.isAuth,
   };
 };
 
@@ -43,8 +44,10 @@ class HeaderContainer extends React.Component {
           />
         </div>
         <div className={styles.logonBlock}>
-          {this.props.userData ? (
-            <NavLink to={`/Profile`}>{this.props.userData.login}</NavLink>
+          {this.props.isAuth ? (
+            <NavLink to={`/Profile/${this.props.userData.id}`}>
+              {this.props.userData.login}
+            </NavLink>
           ) : (
             <NavLink to={`/login`}>Login</NavLink>
           )}
