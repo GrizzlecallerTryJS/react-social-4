@@ -5,11 +5,13 @@ import { setUserProfileAC } from "../../../redux/profileReducer";
 import { connect } from "react-redux";
 import axios from "axios";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
+import { withRouter } from "react-router-dom/cjs/react-router-dom";
 
 let mapStateToProps = (store) => {
   return {
     userProfile: store.profilePage.profileData,
     defaultId: store.profilePage.defaultId,
+    userId: store.profilePage.userId,
     defaultProfileAvatar,
   };
 };
@@ -24,25 +26,17 @@ let mapDispatchToProps = (dispatch) => {
 
 class ProfileContainer extends React.Component {
   componentDidMount() {
-    if (this.props.userId) {
-      axios
-        .get(
-          `https://social-network.samuraijs.com/api/1.0/profile/${this.props.userId}`
-        )
-        .then((response) => {
-          debugger;
-          this.props.setUserProfile(response.data);
-        });
-    } else {
-      axios
-        .get(
-          `https://social-network.samuraijs.com/api/1.0/profile/${this.props.defaultId}`
-        )
-        .then((response) => {
-          debugger;
-          this.props.setUserProfile(response.data);
-        });
+    debugger;
+
+    let userId = this.props.match.params.userId;
+    if (!userId) {
+      userId = this.props.defaultId;
     }
+    axios
+      .get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
+      .then((response) => {
+        this.props.setUserProfile(response.data);
+      });
   }
   render() {
     return (
@@ -55,4 +49,7 @@ class ProfileContainer extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProfileContainer);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withRouter(ProfileContainer));

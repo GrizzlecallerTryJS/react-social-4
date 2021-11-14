@@ -8,7 +8,7 @@ import {
   setUsersAC,
 } from "../../redux/usersReducer";
 import UsersClass from "./UsersClass";
-import { setUserProfileAC } from "../../redux/profileReducer";
+import { setUserIdAC, setUserProfileAC } from "../../redux/profileReducer";
 
 let mapStateToProps = (state) => {
   return {
@@ -41,6 +41,9 @@ let mapDispatchToProps = (dispatch) => {
     },
     setUserProfile: (userProfile) => {
       dispatch(setUserProfileAC(userProfile));
+    },
+    setUserId: (userId) => {
+      dispatch(setUserIdAC(userId));
     },
     /*    FollowButton: (action, userId) => {
       dispatch(ActionButton(action, userId));
