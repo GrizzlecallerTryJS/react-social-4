@@ -1,14 +1,19 @@
 import React from "react";
 
-const ProfileImage = () => {
-  return (
-    <div>
-      <img
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv1vgdYWHDUkyYYYxV4RV78Q4AHDtagK2GRQ&usqp=CAU"
-        alt="default avatar"
-      />
-    </div>
-  );
+const ProfileImage = (props) => {
+  if (props.profileAvatar) {
+    return (
+      <div>
+        <img src={props.profileAvatar} alt="profile avatar" />
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <img src={props.defaultProfileAvatar} alt="default avatar" />
+      </div>
+    );
+  }
 };
 
 export default ProfileImage;

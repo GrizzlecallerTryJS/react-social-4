@@ -30,11 +30,25 @@ class UsersClass extends React.Component {
       });
   };
 
+  getUserById = (id) => {
+    axios
+      .get(`https://social-network.samuraijs.com/api/1.0/profile/${id}`)
+      .then((response) => {
+        this.props.setUserProfile(response.data);
+      });
+  };
+
   render() {
     if (this.props.isFetching) {
       return <Preloader />;
     } else {
-      return <UserItemList {...this.props} getUsers={this.getUsers} />;
+      return (
+        <UserItemList
+          {...this.props}
+          getUsers={this.getUsers}
+          getUserById={this.getUserById}
+        />
+      );
     }
   }
 }

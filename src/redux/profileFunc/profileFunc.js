@@ -13,3 +13,13 @@ export const _addPostFunc = (stateCopy) => {
     stateCopy.tempPostData.message = "";
   }
 };
+
+export const _setUserProfile = (stateCopy, userProfile) => {
+  if (userProfile) {
+    stateCopy.profileData = {
+      ...userProfile,
+      contacts: { ...userProfile.contacts },
+      photos: { ...userProfile.photos },
+    };
+  }
+};
