@@ -3,6 +3,7 @@ import styles from "./Header.module.css";
 import axios from "axios";
 import { setAuthAC } from "../../redux/authReducer";
 import { connect } from "react-redux";
+import { NavLink } from "react-router-dom";
 
 let mapStateToProps = (state) => {
   return {
@@ -41,7 +42,9 @@ class HeaderContainer extends React.Component {
             alt="logo"
           />
         </div>
-        <div>{this.props.userData.login}</div>
+        <div className={styles.logonBlock}>
+          <NavLink to={`/login`}>{this.props.userData.login}</NavLink>
+        </div>
       </div>
     );
   }
