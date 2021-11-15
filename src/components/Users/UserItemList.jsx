@@ -14,13 +14,16 @@ const UserItemList = (props) => {
         getUsers={props.getUsers}
       />
       <div>
-        {props.users.map((item) => (
-          <UserItem
-            {...item}
-            followAction={props.followAction}
-            buttonName={props.buttonName}
-            getUserById={props.getUserById}
-          />
+        {props.users.map((users) => (
+          <div>
+            <UserItem
+              {...users}
+              followAction={props.followAction}
+              buttonName={props.buttonName}
+              getUserById={props.getUserById}
+              otherFollowAction={props.otherFollowAction}
+            />
+          </div>
         ))}
       </div>
     </div>

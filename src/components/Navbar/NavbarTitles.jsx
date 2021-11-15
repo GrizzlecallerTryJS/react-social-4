@@ -7,9 +7,8 @@ const NavbarTitles = (props) => {
     <div className={styles.navbar}>
       <div className={styles.item}>
         {props.navbarTitles.map((title) => (
-          <div>
+          <div key={title.id}>
             <NavLink
-              key={title.id}
               to={`/${title.name.toLowerCase()}`}
               activeClassName={styles.active}
             >

@@ -1,12 +1,14 @@
 import {
   _followFunc,
+  _otherFollowFunc,
   _setCurrentPage,
   _setIsFetching,
   _setTotalCount,
   _setUsers,
 } from "./usersFunc/usersFunc";
 
-const FOLLOW = "FOLLOW";
+const FOLLOW_ACTION = "FOLLOW_ACTION";
+const NEW_FOLLOW_ACTION = "NEW_FOLLOW_ACTION";
 const SET_USERS = "SET_USERS";
 const SET_TOTAL_COUNT = "SET_TOTAL_COUNT";
 const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
@@ -24,11 +26,19 @@ const initialState = {
 const usersReducer = (state = initialState, action) => {
   let stateCopy = {};
   switch (action.type) {
-    case FOLLOW:
+    case FOLLOW_ACTION:
       stateCopy = { ...state, users: state.users.map((user) => user) };
       stateCopy.users.forEach((user) => {
         if (user.id === action.userId) {
-          _followFunc(user, action.followed);
+          _followFunc(user);
+        }
+      });
+      return stateCopy;
+    case NEW_FOLLOW_ACTION:
+      stateCopy = { ...state, users: state.users.map((user) => user) };
+      stateCopy.users.forEach((user) => {
+        if (user.id === action.userId) {
+          _otherFollowFunc(user);
         }
       });
       return stateCopy;
@@ -55,11 +65,16 @@ const usersReducer = (state = initialState, action) => {
 
 export default usersReducer;
 
-export const followAC = (userId, followed) => {
+export const followAC = (userId) => {
   return {
-    type: FOLLOW,
+    type: FOLLOW_ACTION,
     userId,
-    followed,
+  };
+};
+export const newFollowAC = (userId) => {
+  return {
+    type: NEW_FOLLOW_ACTION,
+    userId,
   };
 };
 
