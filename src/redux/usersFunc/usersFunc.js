@@ -1,7 +1,5 @@
-import axios from "axios";
-
 export const _followFunc = (user) => {
-  if (user.followed) {
+  /*if (user.followed) {
     axios
       .delete(
         `https://social-network.samuraijs.com/api/1.0/follow/${user.id}`,
@@ -26,11 +24,16 @@ export const _followFunc = (user) => {
         }
       )
       .then((response) => {
+        debugger;
         if (response.data.resultCode === 0) {
           user.followed = true;
         }
       });
-  }
+  }*/
+};
+
+export const _otherFollowFunc = (user) => {
+  user.followed = !user.followed;
 };
 
 export const _setUsers = (stateCopy, users) => {

@@ -5,20 +5,22 @@ import Preloader from "../StandartComponent/Preloader/Preloader";
 
 class UsersClass extends React.Component {
   componentDidMount() {
-    this.props.setIsFetching(true);
-    axios
-      .get(
-        `https://social-network.samuraijs.com/api/1.0/users?count=${this.props.usersOnPageCount}`,
-        {
-          withCredentials: true,
-          headers: { "API-KEY": "ff303e2a-33e9-4b2c-90a3-a8b22ff8b29b" },
-        }
-      )
-      .then((response) => {
-        this.props.setUsers(response.data.items);
-        this.props.setTotalCount(response.data.totalCount);
-        this.props.setIsFetching(false);
-      });
+    if (this.props.users.length === 0) {
+      this.props.setIsFetching(true);
+      axios
+        .get(
+          `https://social-network.samuraijs.com/api/1.0/users?count=${this.props.usersOnPageCount}`,
+          {
+            withCredentials: true,
+            headers: { "API-KEY": "ff303e2a-33e9-4b2c-90a3-a8b22ff8b29b" },
+          }
+        )
+        .then((response) => {
+          this.props.setUsers(response.data.items);
+          this.props.setTotalCount(response.data.totalCount);
+          this.props.setIsFetching(false);
+        });
+    }
   }
 
   getUsers = (item) => {
@@ -26,7 +28,11 @@ class UsersClass extends React.Component {
     this.props.setCurrentPage(item);
     axios
       .get(
-        `https://social-network.samuraijs.com/api/1.0/users/?page=${item}&count=${this.props.usersOnPageCount}`
+        `https://social-network.samuraijs.com/api/1.0/users/?page=${item}&count=${this.props.usersOnPageCount}`,
+        {
+          withCredentials: true,
+          headers: { "API-KEY": "ff303e2a-33e9-4b2c-90a3-a8b22ff8b29b" },
+        }
       )
       .then((response) => {
         this.props.setUsers(response.data.items);
@@ -36,7 +42,10 @@ class UsersClass extends React.Component {
 
   getUserById = (userId) => {
     axios
-      .get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
+      .get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`, {
+        withCredentials: true,
+        headers: { "API-KEY": "ff303e2a-33e9-4b2c-90a3-a8b22ff8b29b" },
+      })
       .then((response) => {
         this.props.setUserProfile(response.data);
       });

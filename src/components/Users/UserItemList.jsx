@@ -15,12 +15,15 @@ const UserItemList = (props) => {
       />
       <div>
         {props.users.map((users) => (
-          <UserItem
-            {...users}
-            followAction={props.followAction}
-            buttonName={props.buttonName}
-            getUserById={props.getUserById}
-          />
+          <div>
+            <UserItem
+              {...users}
+              followAction={props.followAction}
+              buttonName={props.buttonName}
+              getUserById={props.getUserById}
+              otherFollowAction={props.otherFollowAction}
+            />
+          </div>
         ))}
       </div>
     </div>

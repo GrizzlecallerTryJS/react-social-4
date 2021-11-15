@@ -16,6 +16,7 @@ const UsersPagination = (props) => {
           onClick={() => {
             props.getUsers(item);
           }}
+          key={item}
         >
           <NavLink exact to={`/users/${item}`} activeClassName={styles.active}>
             {item}
