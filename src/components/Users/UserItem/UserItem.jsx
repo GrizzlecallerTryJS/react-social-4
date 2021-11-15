@@ -4,10 +4,8 @@ import defaultAvatar from "../../../default/images/defaultAvatar.png";
 import { NavLink } from "react-router-dom";
 
 const UserItem = (props) => {
-  /*const FollowButton = props.FollowButton;*/
-
   const follow = () => {
-    return props.followAction(props.id, props.followed);
+    return props.followAction(props.id);
   };
 
   const openUserProfile = () => {

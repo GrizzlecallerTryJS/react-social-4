@@ -24,8 +24,8 @@ let mapStateToProps = (state) => {
 
 let mapDispatchToProps = (dispatch) => {
   return {
-    followAction: (userId, followed) => {
-      dispatch(followAC(userId, followed));
+    followAction: (userId) => {
+      dispatch(followAC(userId));
     },
     setUsers: (users) => {
       dispatch(setUsersAC(users));

@@ -14,9 +14,9 @@ const UserItemList = (props) => {
         getUsers={props.getUsers}
       />
       <div>
-        {props.users.map((item) => (
+        {props.users.map((users) => (
           <UserItem
-            {...item}
+            {...users}
             followAction={props.followAction}
             buttonName={props.buttonName}
             getUserById={props.getUserById}

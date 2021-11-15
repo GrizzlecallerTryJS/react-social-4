@@ -8,7 +8,11 @@ class UsersClass extends React.Component {
     this.props.setIsFetching(true);
     axios
       .get(
-        `https://social-network.samuraijs.com/api/1.0/users?count=${this.props.usersOnPageCount}`
+        `https://social-network.samuraijs.com/api/1.0/users?count=${this.props.usersOnPageCount}`,
+        {
+          withCredentials: true,
+          headers: { "API-KEY": "ff303e2a-33e9-4b2c-90a3-a8b22ff8b29b" },
+        }
       )
       .then((response) => {
         this.props.setUsers(response.data.items);
@@ -30,9 +34,9 @@ class UsersClass extends React.Component {
       });
   };
 
-  getUserById = (id) => {
+  getUserById = (userId) => {
     axios
-      .get(`https://social-network.samuraijs.com/api/1.0/profile/${id}`)
+      .get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
       .then((response) => {
         this.props.setUserProfile(response.data);
       });
@@ -47,6 +51,7 @@ class UsersClass extends React.Component {
           {...this.props}
           getUsers={this.getUsers}
           getUserById={this.getUserById}
+          setUserFollowingState={this.setUserFollowingState}
         />
       );
     }
