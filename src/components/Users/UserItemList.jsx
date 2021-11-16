@@ -18,10 +18,9 @@ const UserItemList = (props) => {
           <div>
             <UserItem
               {...users}
-              followAction={props.followAction}
               buttonName={props.buttonName}
               getUserById={props.getUserById}
-              otherFollowAction={props.otherFollowAction}
+              setFollowUserStatus={props.setFollowUserStatus}
             />
           </div>
         ))}

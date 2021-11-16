@@ -7,7 +7,10 @@ class UsersClass extends React.Component {
   componentDidMount() {
     if (this.props.users.length === 0) {
       this.props.setIsFetching(true);
-      UserAPI.getAllUsers(this.props.usersOnPageCount).then((data) => {
+      UserAPI.getUsers(
+        this.props.usersOnPageCount,
+        this.props.defaultPage
+      ).then((data) => {
         this.props.setUsers(data.items);
         this.props.setTotalCount(data.totalCount);
         this.props.setIsFetching(false);
@@ -18,7 +21,7 @@ class UsersClass extends React.Component {
   getUsers = (item) => {
     this.props.setIsFetching(true);
     this.props.setCurrentPage(item);
-    UserAPI.getUsers(item, this.props.usersOnPageCount).then((data) => {
+    UserAPI.getUsers(this.props.usersOnPageCount, item).then((data) => {
       this.props.setUsers(data.items);
       this.props.setIsFetching(false);
     });
@@ -30,6 +33,22 @@ class UsersClass extends React.Component {
     });
   };
 
+  setFollowUserStatus = (userId, followed) => {
+    if (followed) {
+      UserAPI.unfollowUser(userId).then((data) => {
+        if (data.resultCode === 0) {
+          this.props.followAction(userId);
+        }
+      });
+    } else {
+      UserAPI.followUser(userId).then((data) => {
+        if (data.resultCode === 0) {
+          this.props.followAction(userId);
+        }
+      });
+    }
+  };
+
   render() {
     if (this.props.isFetching) {
       return <Preloader />;
@@ -39,7 +58,7 @@ class UsersClass extends React.Component {
           {...this.props}
           getUsers={this.getUsers}
           getUserById={this.getUserById}
-          setUserFollowingState={this.setUserFollowingState}
+          setFollowUserStatus={this.setFollowUserStatus}
         />
       );
     }

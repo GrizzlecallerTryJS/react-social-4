@@ -2,7 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 import {
   followAC,
-  newFollowAC,
   setCurrentPageAC,
   setIsFetchingAC,
   setTotalCountAC,
@@ -20,6 +19,7 @@ let mapStateToProps = (state) => {
     buttonName: "Follow",
     currentPage: state.usersState.currentPage,
     isFetching: state.usersState.isFetching,
+    defaultPage: state.usersState.defaultPage,
   };
 };
 
@@ -27,9 +27,6 @@ let mapDispatchToProps = (dispatch) => {
   return {
     followAction: (userId) => {
       dispatch(followAC(userId));
-    },
-    otherFollowAction: (id) => {
-      dispatch(newFollowAC(id));
     },
     setUsers: (users) => {
       dispatch(setUsersAC(users));
