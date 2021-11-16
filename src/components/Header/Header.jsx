@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "./Header.module.css";
-import axios from "axios";
 import { setAuthAC } from "../../redux/authReducer";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { AuthAPI } from "../../api/api";
 
 let mapStateToProps = (state) => {
   return {
@@ -22,15 +22,14 @@ let mapDispatchToProps = (dispatch) => {
 
 class HeaderContainer extends React.Component {
   componentDidMount() {
-    axios
-      .get(`https://social-network.samuraijs.com/api/1.0/auth/me`, {
-        withCredentials: true,
-      })
-      .then((response) => {
-        if (response.data.resultCode === 0) {
-          this.props.setUserAuth(response.data.data);
+    if (!this.props.isAuth) {
+      AuthAPI.getAuth().then((data) => {
+        debugger;
+        if (data.resultCode === 0) {
+          this.props.setUserAuth(data.data);
         }
       });
+    }
   }
 
   render() {
