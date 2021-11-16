@@ -33,17 +33,17 @@ class UsersClass extends React.Component {
     });
   };
 
-  followInternalFunc = (userId, followed) => {
+  setFollowUserStatus = (userId, followed) => {
     if (followed) {
       UserAPI.unfollowUser(userId).then((data) => {
         if (data.resultCode === 0) {
-          this.props.otherFollowAction(userId);
+          this.props.followAction(userId);
         }
       });
     } else {
       UserAPI.followUser(userId).then((data) => {
         if (data.resultCode === 0) {
-          this.props.otherFollowAction(userId);
+          this.props.followAction(userId);
         }
       });
     }
@@ -58,8 +58,7 @@ class UsersClass extends React.Component {
           {...this.props}
           getUsers={this.getUsers}
           getUserById={this.getUserById}
-          setUserFollowingState={this.setUserFollowingState}
-          followInternalFunc={this.followInternalFunc}
+          setFollowUserStatus={this.setFollowUserStatus}
         />
       );
     }

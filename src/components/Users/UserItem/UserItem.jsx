@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 
 const UserItem = (props) => {
   const follow = () => {
-    return props.followInternalFunc(props.id, props.followed);
+    return props.setFollowUserStatus(props.id, props.followed);
   };
 
   const openUserProfile = () => {

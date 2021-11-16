@@ -1,5 +1,4 @@
 import {
-  _followFunc,
   _otherFollowFunc,
   _setCurrentPage,
   _setIsFetching,
@@ -28,14 +27,6 @@ const usersReducer = (state = initialState, action) => {
   let stateCopy = {};
   switch (action.type) {
     case FOLLOW_ACTION:
-      stateCopy = { ...state, users: state.users.map((user) => user) };
-      stateCopy.users.forEach((user) => {
-        if (user.id === action.userId) {
-          _followFunc(user);
-        }
-      });
-      return stateCopy;
-    case NEW_FOLLOW_ACTION:
       stateCopy = { ...state, users: state.users.map((user) => user) };
       stateCopy.users.forEach((user) => {
         if (user.id === action.userId) {

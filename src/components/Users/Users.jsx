@@ -2,7 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 import {
   followAC,
-  newFollowAC,
   setCurrentPageAC,
   setIsFetchingAC,
   setTotalCountAC,
@@ -28,9 +27,6 @@ let mapDispatchToProps = (dispatch) => {
   return {
     followAction: (userId) => {
       dispatch(followAC(userId));
-    },
-    otherFollowAction: (id) => {
-      dispatch(newFollowAC(id));
     },
     setUsers: (users) => {
       dispatch(setUsersAC(users));
