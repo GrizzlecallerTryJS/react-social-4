@@ -21,6 +21,7 @@ const initialState = {
   pagesCount: null,
   currentPage: 1,
   isFetching: false,
+  defaultPage: 1,
 };
 
 const usersReducer = (state = initialState, action) => {

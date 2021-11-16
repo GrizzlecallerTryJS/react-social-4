@@ -20,6 +20,7 @@ let mapStateToProps = (state) => {
     buttonName: "Follow",
     currentPage: state.usersState.currentPage,
     isFetching: state.usersState.isFetching,
+    defaultPage: state.usersState.defaultPage,
   };
 };
 

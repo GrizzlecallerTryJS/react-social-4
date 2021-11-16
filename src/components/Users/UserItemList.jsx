@@ -22,6 +22,7 @@ const UserItemList = (props) => {
               buttonName={props.buttonName}
               getUserById={props.getUserById}
               otherFollowAction={props.otherFollowAction}
+              followInternalFunc={props.followInternalFunc}
             />
           </div>
         ))}
