@@ -7,7 +7,6 @@ import {
 } from "./usersFunc/usersFunc";
 
 const FOLLOW_ACTION = "FOLLOW_ACTION";
-const NEW_FOLLOW_ACTION = "NEW_FOLLOW_ACTION";
 const SET_USERS = "SET_USERS";
 const SET_TOTAL_COUNT = "SET_TOTAL_COUNT";
 const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
