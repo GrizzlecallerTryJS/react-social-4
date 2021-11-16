@@ -1,5 +1,5 @@
 import {
-  _otherFollowFunc,
+  _followFunc,
   _setCurrentPage,
   _setIsFetching,
   _setTotalCount,
@@ -30,7 +30,7 @@ const usersReducer = (state = initialState, action) => {
       stateCopy = { ...state, users: state.users.map((user) => user) };
       stateCopy.users.forEach((user) => {
         if (user.id === action.userId) {
-          _otherFollowFunc(user);
+          _followFunc(user);
         }
       });
       return stateCopy;
@@ -60,12 +60,6 @@ export default usersReducer;
 export const followAC = (userId) => {
   return {
     type: FOLLOW_ACTION,
-    userId,
-  };
-};
-export const newFollowAC = (userId) => {
-  return {
-    type: NEW_FOLLOW_ACTION,
     userId,
   };
 };
