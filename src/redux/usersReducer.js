@@ -22,7 +22,7 @@ const initialState = {
   currentPage: 1,
   isFetching: false,
   defaultPage: 1,
-  followIsFetching: false,
+  followIsFetching: [],
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -54,7 +54,7 @@ const usersReducer = (state = initialState, action) => {
       return stateCopy;
     case SET_FOLLOW_IS_FETCHING:
       stateCopy = { ...state };
-      _setFollowIsFetching(stateCopy);
+      _setFollowIsFetching(stateCopy, action.userId, action.isFetching);
       return stateCopy;
     default:
       return state;
@@ -98,8 +98,10 @@ export const setIsFetchingAC = (fetchingStatus) => {
   };
 };
 
-export const setFollowIsFetchingAC = () => {
+export const setFollowIsFetchingAC = (userId, isFetching) => {
   return {
     type: SET_FOLLOW_IS_FETCHING,
+    userId,
+    isFetching,
   };
 };

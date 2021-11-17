@@ -25,6 +25,12 @@ export const _setIsFetching = (stateCopy, fetchingStatus) => {
   stateCopy.isFetching = fetchingStatus;
 };
 
-export const _setFollowIsFetching = (stateCopy) => {
-  stateCopy.followIsFetching = !stateCopy.followIsFetching;
+export const _setFollowIsFetching = (stateCopy, userId, isFetching) => {
+  if (userId) {
+    isFetching
+      ? (stateCopy.followIsFetching = [...stateCopy.followIsFetching, userId])
+      : (stateCopy.followIsFetching = stateCopy.followIsFetching.filter(
+          (id) => id !== userId
+        ));
+  }
 };

@@ -48,8 +48,8 @@ let mapDispatchToProps = (dispatch) => {
     setUserId: (userId) => {
       dispatch(setUserIdAC(userId));
     },
-    setFollowIsFetching: () => {
-      dispatch(setFollowIsFetchingAC());
+    setFollowIsFetching: (userId, isFetching) => {
+      dispatch(setFollowIsFetchingAC(userId, isFetching));
     },
     /*    FollowButton: (action, userId) => {
       dispatch(ActionButton(action, userId));
