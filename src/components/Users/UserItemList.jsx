@@ -21,6 +21,7 @@ const UserItemList = (props) => {
               buttonName={props.buttonName}
               getUserById={props.getUserById}
               setFollowUserStatus={props.setFollowUserStatus}
+              followIsFetching={props.followIsFetching}
             />
           </div>
         ))}
