@@ -24,3 +24,7 @@ export const _setCurrentPage = (stateCopy, currentPage) => {
 export const _setIsFetching = (stateCopy, fetchingStatus) => {
   stateCopy.isFetching = fetchingStatus;
 };
+
+export const _setFollowIsFetching = (stateCopy) => {
+  stateCopy.followIsFetching = !stateCopy.followIsFetching;
+};

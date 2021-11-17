@@ -1,6 +1,7 @@
 import {
   _followFunc,
   _setCurrentPage,
+  _setFollowIsFetching,
   _setIsFetching,
   _setTotalCount,
   _setUsers,
@@ -11,6 +12,7 @@ const SET_USERS = "SET_USERS";
 const SET_TOTAL_COUNT = "SET_TOTAL_COUNT";
 const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
 const SET_IS_FETCHING = "SET_IS_FETCHING";
+const SET_FOLLOW_IS_FETCHING = "SET_FOLLOW_IS_FETCHING";
 
 const initialState = {
   users: [],
@@ -20,6 +22,7 @@ const initialState = {
   currentPage: 1,
   isFetching: false,
   defaultPage: 1,
+  followIsFetching: false,
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -48,6 +51,10 @@ const usersReducer = (state = initialState, action) => {
     case SET_IS_FETCHING:
       stateCopy = { ...state };
       _setIsFetching(stateCopy, action.fetchingStatus);
+      return stateCopy;
+    case SET_FOLLOW_IS_FETCHING:
+      stateCopy = { ...state };
+      _setFollowIsFetching(stateCopy);
       return stateCopy;
     default:
       return state;
@@ -88,5 +95,11 @@ export const setIsFetchingAC = (fetchingStatus) => {
   return {
     type: SET_IS_FETCHING,
     fetchingStatus,
+  };
+};
+
+export const setFollowIsFetchingAC = () => {
+  return {
+    type: SET_FOLLOW_IS_FETCHING,
   };
 };

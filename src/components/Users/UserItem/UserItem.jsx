@@ -34,7 +34,11 @@ const UserItem = (props) => {
         <div>{props.status}</div>
       </div>
       <div>
-        <button onClick={follow} name={props.buttonName}>
+        <button
+          onClick={follow}
+          name={props.buttonName}
+          disabled={props.followIsFetching ? "disabled" : ""}
+        >
           {props.followed ? "unFollowCustomButton" : "FollowCustomButton"}
         </button>
       </div>

@@ -34,16 +34,19 @@ class UsersClass extends React.Component {
   };
 
   setFollowUserStatus = (userId, followed) => {
+    this.props.setFollowIsFetching();
     if (followed) {
       UserAPI.unfollowUser(userId).then((data) => {
         if (data.resultCode === 0) {
           this.props.followAction(userId);
+          this.props.setFollowIsFetching();
         }
       });
     } else {
       UserAPI.followUser(userId).then((data) => {
         if (data.resultCode === 0) {
           this.props.followAction(userId);
+          this.props.setFollowIsFetching();
         }
       });
     }

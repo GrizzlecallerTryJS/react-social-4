@@ -24,7 +24,6 @@ class HeaderContainer extends React.Component {
   componentDidMount() {
     if (!this.props.isAuth) {
       AuthAPI.getAuth().then((data) => {
-        debugger;
         if (data.resultCode === 0) {
           this.props.setUserAuth(data.data);
         }
