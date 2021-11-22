@@ -7,10 +7,6 @@ const UserItemList = (props) => {
     <div>
       <UsersPagination
         pagesCount={props.pagesCount}
-        setCurrentPage={props.setCurrentPage}
-        setUsers={props.setUsers}
-        currentPage={props.currentPage}
-        usersOnPageCount={props.usersOnPageCount}
         getUsers={props.getUsers}
       />
       <div>

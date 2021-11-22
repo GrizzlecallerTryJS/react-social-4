@@ -10,16 +10,20 @@ const UsersPagination = (props) => {
 
   return (
     <div>
-      {pages.map((item) => (
+      {pages.map((pageNumber) => (
         <span
           className={styles.item}
           onClick={() => {
-            props.getUsers(item);
+            props.getUsers(pageNumber);
           }}
-          key={item}
+          key={pageNumber}
         >
-          <NavLink exact to={`/users/${item}`} activeClassName={styles.active}>
-            {item}
+          <NavLink
+            exact
+            to={`/users/${pageNumber}`}
+            activeClassName={styles.active}
+          >
+            {pageNumber}
           </NavLink>
         </span>
       ))}

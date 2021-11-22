@@ -1,15 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
-import {
-  followAC,
-  setCurrentPageAC,
-  setFollowIsFetchingAC,
-  setIsFetchingAC,
-  setTotalCountAC,
-  setUsersAC,
-} from "../../redux/usersReducer";
+import { followAC, setUsersAC } from "../../redux/usersReducer";
 import UsersClass from "./UsersClass";
 import { setUserIdAC, setUserProfileAC } from "../../redux/profileReducer";
+import {
+  getUserByIdTC,
+  getUsersTC,
+  setFollowUserStatusTC,
+} from "../../redux/usersFunc/usersThunkCreators";
 
 let mapStateToProps = (state) => {
   return {
@@ -33,23 +31,20 @@ let mapDispatchToProps = (dispatch) => {
     setUsers: (users) => {
       dispatch(setUsersAC(users));
     },
-    setTotalCount: (totalCount) => {
-      dispatch(setTotalCountAC(totalCount));
-    },
-    setCurrentPage: (currentPagw) => {
-      dispatch(setCurrentPageAC(currentPagw));
-    },
-    setIsFetching: (fetchingStatus) => {
-      dispatch(setIsFetchingAC(fetchingStatus));
-    },
     setUserProfile: (userProfile) => {
       dispatch(setUserProfileAC(userProfile));
     },
     setUserId: (userId) => {
       dispatch(setUserIdAC(userId));
     },
-    setFollowIsFetching: (userId, isFetching) => {
-      dispatch(setFollowIsFetchingAC(userId, isFetching));
+    getUsers: (usersOnPageCount, pageNumber) => {
+      dispatch(getUsersTC(usersOnPageCount, pageNumber));
+    },
+    setFollowUserStatus: (userId, followed) => {
+      dispatch(setFollowUserStatusTC(userId, followed));
+    },
+    getUserById: (userId) => {
+      dispatch(getUserByIdTC(userId));
     },
     /*    FollowButton: (action, userId) => {
       dispatch(ActionButton(action, userId));

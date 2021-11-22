@@ -1,55 +1,24 @@
 import React from "react";
 import UserItemList from "./UserItemList";
 import Preloader from "../StandartComponent/Preloader/Preloader";
-import { UserAPI } from "../../api/api";
 
 class UsersClass extends React.Component {
   componentDidMount() {
     if (this.props.users.length === 0) {
-      this.props.setIsFetching(true);
-      UserAPI.getUsers(
-        this.props.usersOnPageCount,
-        this.props.defaultPage
-      ).then((data) => {
-        this.props.setUsers(data.items);
-        this.props.setTotalCount(data.totalCount);
-        this.props.setIsFetching(false);
-      });
+      this.props.getUsers(this.props.usersOnPageCount, this.props.defaultPage);
     }
   }
 
-  getUsers = (item) => {
-    this.props.setIsFetching(true);
-    this.props.setCurrentPage(item);
-    UserAPI.getUsers(this.props.usersOnPageCount, item).then((data) => {
-      this.props.setUsers(data.items);
-      this.props.setIsFetching(false);
-    });
+  getUsers = (pageNumber) => {
+    this.props.getUsers(this.props.usersOnPageCount, pageNumber);
   };
 
   getUserById = (userId) => {
-    UserAPI.getUserById(userId).then((data) => {
-      this.props.setUserProfile(data);
-    });
+    this.props.getUserById(userId);
   };
 
   setFollowUserStatus = (userId, followed) => {
-    this.props.setFollowIsFetching(userId, true);
-    if (followed) {
-      UserAPI.unfollowUser(userId).then((data) => {
-        if (data.resultCode === 0) {
-          this.props.followAction(userId);
-        }
-        this.props.setFollowIsFetching(userId, false);
-      });
-    } else {
-      UserAPI.followUser(userId).then((data) => {
-        if (data.resultCode === 0) {
-          this.props.followAction(userId);
-        }
-        this.props.setFollowIsFetching(userId, false);
-      });
-    }
+    this.props.setFollowUserStatus(userId, followed);
   };
 
   render() {
