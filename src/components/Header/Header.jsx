@@ -1,9 +1,8 @@
 import React from "react";
 import styles from "./Header.module.css";
-import { setAuthAC } from "../../redux/authReducer";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { AuthAPI } from "../../api/api";
+import { getAuthTC } from "../../redux/authFunc/authThunkCreators";
 
 let mapStateToProps = (state) => {
   return {
@@ -14,8 +13,8 @@ let mapStateToProps = (state) => {
 
 let mapDispatchToProps = (dispatch) => {
   return {
-    setUserAuth: (userAuth) => {
-      dispatch(setAuthAC(userAuth));
+    getAuth: () => {
+      dispatch(getAuthTC());
     },
   };
 };
@@ -23,11 +22,7 @@ let mapDispatchToProps = (dispatch) => {
 class HeaderContainer extends React.Component {
   componentDidMount() {
     if (!this.props.isAuth) {
-      AuthAPI.getAuth().then((data) => {
-        if (data.resultCode === 0) {
-          this.props.setUserAuth(data.data);
-        }
-      });
+      this.props.getAuth();
     }
   }
 
