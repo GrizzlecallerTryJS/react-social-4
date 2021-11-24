@@ -14,7 +14,7 @@ const UsersPagination = (props) => {
         <span
           className={styles.item}
           onClick={() => {
-            props.getUsers(pageNumber);
+            props.getUsers(props.usersOnPageCount, pageNumber);
           }}
           key={pageNumber}
         >
