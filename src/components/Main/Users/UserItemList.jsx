@@ -8,6 +8,7 @@ const UserItemList = (props) => {
       <UsersPagination
         pagesCount={props.pagesCount}
         getUsers={props.getUsers}
+        usersOnPageCount={props.usersOnPageCount}
       />
       <div>
         {props.users.map((users) => (

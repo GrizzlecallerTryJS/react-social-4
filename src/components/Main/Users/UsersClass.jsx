@@ -10,18 +10,6 @@ class UsersClass extends React.Component {
     }
   }
 
-  getUsers = (pageNumber) => {
-    this.props.getUsers(this.props.usersOnPageCount, pageNumber);
-  };
-
-  getUserById = (userId) => {
-    this.props.getUserById(userId);
-  };
-
-  setFollowUserStatus = (userId, followed) => {
-    this.props.setFollowUserStatus(userId, followed);
-  };
-
   render() {
     if (!this.props.isAuth) {
       return <Redirect to={"/login"} />;
@@ -29,14 +17,7 @@ class UsersClass extends React.Component {
     if (this.props.isFetching) {
       return <Preloader />;
     } else {
-      return (
-        <UserItemList
-          {...this.props}
-          getUsers={this.getUsers}
-          getUserById={this.getUserById}
-          setFollowUserStatus={this.setFollowUserStatus}
-        />
-      );
+      return <UserItemList {...this.props} />;
     }
   }
 }
