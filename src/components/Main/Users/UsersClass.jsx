@@ -1,6 +1,7 @@
 import React from "react";
 import UserItemList from "./UserItemList";
-import Preloader from "../StandartComponent/Preloader/Preloader";
+import Preloader from "../../StandartComponent/Preloader/Preloader";
+import { Redirect } from "react-router-dom";
 
 class UsersClass extends React.Component {
   componentDidMount() {
@@ -22,6 +23,9 @@ class UsersClass extends React.Component {
   };
 
   render() {
+    if (!this.props.isAuth) {
+      return <Redirect to={"/login"} />;
+    }
     if (this.props.isFetching) {
       return <Preloader />;
     } else {

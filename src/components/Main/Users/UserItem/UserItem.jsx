@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./UserItem.module.css";
-import defaultAvatar from "../../../default/images/defaultAvatar.png";
+import defaultAvatar from "../../../../default/images/defaultAvatar.png";
 import { NavLink } from "react-router-dom";
 
 const UserItem = (props) => {

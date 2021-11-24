@@ -1,13 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
-import { followAC, setUsersAC } from "../../redux/usersReducer";
+import { followAC, setUsersAC } from "../../../redux/usersReducer";
 import UsersClass from "./UsersClass";
-import { setUserIdAC, setUserProfileAC } from "../../redux/profileReducer";
+import { setUserIdAC, setUserProfileAC } from "../../../redux/profileReducer";
 import {
   getUserByIdTC,
   getUsersTC,
   setFollowUserStatusTC,
-} from "../../redux/usersFunc/usersThunkCreators";
+} from "../../../redux/usersFunc/usersThunkCreators";
 
 let mapStateToProps = (state) => {
   return {
@@ -20,6 +20,7 @@ let mapStateToProps = (state) => {
     isFetching: state.usersState.isFetching,
     defaultPage: state.usersState.defaultPage,
     followIsFetching: state.usersState.followIsFetching,
+    isAuth: state.authState.isAuth,
   };
 };
 
