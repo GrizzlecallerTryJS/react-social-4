@@ -6,7 +6,8 @@ import Dialogs from "./Dialogs/Dialogs";
 import Music from "./Music/Music";
 import News from "./News/News";
 import People from "./People/People";
-import Users from "../Users/Users";
+import Users from "./Users/Users";
+import Login from "./Login/Login";
 
 const Main = () => {
   const ProfileComponent = () => {
@@ -32,6 +33,9 @@ const Main = () => {
   const UsersComponent = () => {
     return <Users />;
   };
+  const LoginComponent = () => {
+    return <Login />;
+  };
 
   return (
     <div className={styles.main}>
@@ -42,6 +46,7 @@ const Main = () => {
         <Route path={`/music`} render={MusicComponent} />
         <Route path={`/people`} render={PeopleComponent} />
         <Route path={`/users`} render={UsersComponent} />
+        <Route path={`/login`} render={LoginComponent} />
       </div>
     </div>
   );

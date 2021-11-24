@@ -6,13 +6,15 @@ import { connect } from "react-redux";
 import axios from "axios";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import { withRouter } from "react-router-dom/cjs/react-router-dom";
+import { Redirect } from "react-router-dom";
 
-let mapStateToProps = (store) => {
+let mapStateToProps = (state) => {
   return {
-    userProfile: store.profilePage.profileData,
-    defaultId: store.profilePage.defaultId,
-    userId: store.profilePage.userId,
+    userProfile: state.profilePage.profileData,
+    defaultId: state.profilePage.defaultId,
+    userId: state.profilePage.userId,
     defaultProfileAvatar,
+    isAuth: state.authState.isAuth,
   };
 };
 
@@ -37,6 +39,9 @@ class ProfileContainer extends React.Component {
       });
   }
   render() {
+    if (!this.props.isAuth) {
+      return <Redirect to={"/login"} />;
+    }
     return (
       <div>
         <div>Profile</div>
