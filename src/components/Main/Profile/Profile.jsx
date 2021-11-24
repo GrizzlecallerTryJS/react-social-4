@@ -1,12 +1,11 @@
 import React from "react";
 import Posts from "./Posts/Posts";
 import defaultProfileAvatar from "../../../default/images/defaultProfileAvatar.png";
-import { setUserProfileAC } from "../../../redux/profileReducer";
 import { connect } from "react-redux";
-import axios from "axios";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import { withRouter } from "react-router-dom/cjs/react-router-dom";
 import { Redirect } from "react-router-dom";
+import { getProfileTC } from "../../../redux/profileFunc/profileThunkCreators";
 
 let mapStateToProps = (state) => {
   return {
@@ -21,7 +20,7 @@ let mapStateToProps = (state) => {
 let mapDispatchToProps = (dispatch) => {
   return {
     setUserProfile: (userProfile) => {
-      dispatch(setUserProfileAC(userProfile));
+      dispatch(getProfileTC(userProfile));
     },
   };
 };
@@ -32,11 +31,7 @@ class ProfileContainer extends React.Component {
     if (!userId) {
       userId = this.props.defaultId;
     }
-    axios
-      .get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
-      .then((response) => {
-        this.props.setUserProfile(response.data);
-      });
+    this.props.setUserProfile(userId);
   }
   render() {
     if (!this.props.isAuth) {
