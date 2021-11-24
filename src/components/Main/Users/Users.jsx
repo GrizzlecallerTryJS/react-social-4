@@ -8,6 +8,7 @@ import {
   getUsersTC,
   setFollowUserStatusTC,
 } from "../../../redux/usersFunc/usersThunkCreators";
+import { withAuthRedirect } from "../../StandartComponent/hoc/withAuthRedirect";
 
 let mapStateToProps = (state) => {
   return {
@@ -20,7 +21,6 @@ let mapStateToProps = (state) => {
     isFetching: state.usersState.isFetching,
     defaultPage: state.usersState.defaultPage,
     followIsFetching: state.usersState.followIsFetching,
-    isAuth: state.authState.isAuth,
   };
 };
 
@@ -56,7 +56,7 @@ let mapDispatchToProps = (dispatch) => {
 const UserItemContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(UsersClass);
+)(withAuthRedirect(UsersClass));
 
 const Users = () => {
   return <UserItemContainer />;
