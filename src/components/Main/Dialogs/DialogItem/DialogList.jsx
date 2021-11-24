@@ -1,13 +1,8 @@
 import React from "react";
 import styles from "./DialogsItem.module.css";
 import DialogsItem from "./DialogsItem";
-import { Redirect } from "react-router-dom";
 
 const DialogList = (props) => {
-  if (!props.isAuth) {
-    return <Redirect to={"/login"} />;
-  }
-
   return (
     <div className={styles.dialog_item}>
       {props.dialogsState.dialogsData.map((data) => (

@@ -2,16 +2,21 @@ import React from "react";
 import DialogList from "./DialogItem/DialogList";
 import styles from "./Dialogs.module.css";
 import { connect } from "react-redux";
+import { withAuthRedirect } from "../../StandartComponent/hoc/withAuthRedirect";
 
 const Dialogs = () => {
   let mapStateToProps = (state) => {
     return {
       dialogsState: state.dialogsPage,
-      isAuth: state.authState.isAuth,
     };
   };
+  let mapDispatchToProps = (dispatch) => {};
 
-  const DialogListContainer = connect(mapStateToProps, {})(DialogList);
+  const DialogListContainer = connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(withAuthRedirect(DialogList));
+
   return (
     <div>
       <div>Dialogs</div>
