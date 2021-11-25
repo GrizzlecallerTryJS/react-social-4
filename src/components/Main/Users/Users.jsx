@@ -9,6 +9,7 @@ import {
   setFollowUserStatusTC,
 } from "../../../redux/usersFunc/usersThunkCreators";
 import { withAuthRedirect } from "../../StandartComponent/hoc/withAuthRedirect";
+import { compose } from "redux";
 
 let mapStateToProps = (state) => {
   return {
@@ -53,10 +54,10 @@ let mapDispatchToProps = (dispatch) => {
   };
 };
 
-const UserItemContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(withAuthRedirect(UsersClass));
+const UserItemContainer = compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  withAuthRedirect
+)(UsersClass);
 
 const Users = () => {
   return <UserItemContainer />;

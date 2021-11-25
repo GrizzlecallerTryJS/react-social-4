@@ -3,6 +3,7 @@ import styles from "./Header.module.css";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { getAuthTC } from "../../redux/authFunc/authThunkCreators";
+import { compose } from "redux";
 
 let mapStateToProps = (state) => {
   return {
@@ -50,4 +51,6 @@ class HeaderContainer extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(HeaderContainer);
+export default compose(connect(mapStateToProps, mapDispatchToProps))(
+  HeaderContainer
+);
