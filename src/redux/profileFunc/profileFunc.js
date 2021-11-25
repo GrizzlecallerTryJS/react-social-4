@@ -29,3 +29,9 @@ export const _setUserId = (stateCopy, userId) => {
     stateCopy.userId = userId;
   }
 };
+
+export const _setUserStatus = (stateCopy, userId, status) => {
+  if (userId && status) {
+    stateCopy.profileStatus = status;
+  }
+};
