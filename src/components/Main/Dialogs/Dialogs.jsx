@@ -3,6 +3,7 @@ import DialogList from "./DialogItem/DialogList";
 import styles from "./Dialogs.module.css";
 import { connect } from "react-redux";
 import { withAuthRedirect } from "../../StandartComponent/hoc/withAuthRedirect";
+import { compose } from "redux";
 
 const Dialogs = () => {
   let mapStateToProps = (state) => {
@@ -12,10 +13,10 @@ const Dialogs = () => {
   };
   let mapDispatchToProps = (dispatch) => {};
 
-  const DialogListContainer = connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(withAuthRedirect(DialogList));
+  const DialogListContainer = compose(
+    connect(mapStateToProps, mapDispatchToProps),
+    withAuthRedirect
+  )(DialogList);
 
   return (
     <div>
