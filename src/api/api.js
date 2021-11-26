@@ -23,10 +23,20 @@ export const UserAPI = {
       .delete(`follow/${userId}`)
       .then((response) => response.data);
   },
+  getStatus(userId) {
+    return instance
+      .get(`profile/status/${userId}`)
+      .then((response) => response.data);
+  },
+  setStatus(newStatus) {
+    return instance
+      .put(`/profile/status`, { status: newStatus })
+      .then((response) => response.data);
+  },
 };
 
 export const AuthAPI = {
-  getAuth() {
+  getAuth(newPost) {
     return instance.get(`auth/me`).then((response) => response.data);
   },
 };
