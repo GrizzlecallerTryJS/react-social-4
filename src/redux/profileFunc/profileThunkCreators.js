@@ -20,10 +20,11 @@ export const getUserStatusTC = (userId) => {
 };
 
 export const setUserStatusTC = (userId, newStatus) => {
+  debugger;
   return (dispatch) => {
     UserAPI.setStatus(newStatus).then((data) => {
       if (data.resultCode === 0) {
-        dispatch(setUserStatusAC(userId, data));
+        dispatch(setUserStatusAC(userId, newStatus));
       }
     });
   };
