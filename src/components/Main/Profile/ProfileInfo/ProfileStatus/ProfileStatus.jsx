@@ -1,7 +1,6 @@
 import React from "react";
 
 class ProfileStatus extends React.Component {
-  textAreaRef = React.createRef();
   state = {
     editMode: false,
     status: this.props.profileStatus,
@@ -11,11 +10,14 @@ class ProfileStatus extends React.Component {
     this.setState({
       editMode: mode,
     });
+    if (!mode) {
+      this.props.setUserStatus(this.props.userId, this.state.status);
+    }
   };
 
-  onChangeAction = () => {
+  onChangeAction = (e) => {
     this.setState({
-      status: "bla111",
+      status: e.currentTarget.value,
     });
   };
 
@@ -24,12 +26,10 @@ class ProfileStatus extends React.Component {
       return (
         <span>
           <input
-            textAreaRef={this.textAreaRef}
-            value={this.props.profileStatus}
+            value={this.state.status}
             onChange={this.onChangeAction}
             onBlur={() => {
               this.setEditMode(false);
-              this.props.setUserStatus(this.props.userId, this.state.status);
             }}
           />
         </span>
@@ -39,7 +39,7 @@ class ProfileStatus extends React.Component {
         <div>
           <div>
             <span onDoubleClick={() => this.setEditMode(true)}>
-              {this.props.profileStatus}
+              {this.props.profileStatus || "-------"}
             </span>
           </div>
         </div>
