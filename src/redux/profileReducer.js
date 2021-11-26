@@ -14,7 +14,7 @@ const SET_USER_STATUS = "SET_USER_STATUS";
 
 const initialState = {
   profileData: null,
-  profileStatus: null,
+  profileStatus: "",
   postData: [
     { id: 1, message: "first", likesCount: 4 },
     { id: 2, message: "second", likesCount: 6 },

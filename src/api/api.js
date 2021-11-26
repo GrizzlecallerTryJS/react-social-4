@@ -23,6 +23,9 @@ export const UserAPI = {
       .delete(`follow/${userId}`)
       .then((response) => response.data);
   },
+};
+
+export const ProfileAPI = {
   getStatus(userId) {
     return instance
       .get(`profile/status/${userId}`)
@@ -36,7 +39,7 @@ export const UserAPI = {
 };
 
 export const AuthAPI = {
-  getAuth(newPost) {
+  getAuth() {
     return instance.get(`auth/me`).then((response) => response.data);
   },
 };

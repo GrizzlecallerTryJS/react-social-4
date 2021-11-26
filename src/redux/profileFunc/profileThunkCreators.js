@@ -1,4 +1,4 @@
-import { UserAPI } from "../../api/api";
+import { ProfileAPI, UserAPI } from "../../api/api";
 import { setUserProfileAC, setUserStatusAC } from "../profileReducer";
 
 export const getProfileTC = (userId) => {
@@ -11,7 +11,7 @@ export const getProfileTC = (userId) => {
 
 export const getUserStatusTC = (userId) => {
   return (dispatch) => {
-    UserAPI.getStatus(userId).then((data) => {
+    ProfileAPI.getStatus(userId).then((data) => {
       if (data) {
         dispatch(setUserStatusAC(userId, data));
       }
@@ -20,9 +20,8 @@ export const getUserStatusTC = (userId) => {
 };
 
 export const setUserStatusTC = (userId, newStatus) => {
-  debugger;
   return (dispatch) => {
-    UserAPI.setStatus(newStatus).then((data) => {
+    ProfileAPI.setStatus(newStatus).then((data) => {
       if (data.resultCode === 0) {
         dispatch(setUserStatusAC(userId, newStatus));
       }
