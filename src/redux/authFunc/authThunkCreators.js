@@ -10,3 +10,11 @@ export const getAuthTC = () => {
     });
   };
 };
+
+export const loginTC = (data) => (dispatch) => {
+  AuthAPI.login(data).then((data) => {
+    if (data.resultCode === 0) {
+      dispatch(setAuthAC(data.data));
+    }
+  });
+};
