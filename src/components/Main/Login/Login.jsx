@@ -2,6 +2,7 @@ import React from "react";
 import { compose } from "redux";
 import { connect } from "react-redux";
 import LoginPart from "./LoginPart";
+import { loginTC } from "../../../redux/authFunc/authThunkCreators";
 
 const Login = () => {
   let mapStateToProps = (state) => {
@@ -10,7 +11,13 @@ const Login = () => {
     };
   };
 
-  let mapDispatchToProps = (dispatch) => {};
+  let mapDispatchToProps = (dispatch) => {
+    return {
+      getLogin: (email, password) => {
+        dispatch(loginTC(email, password));
+      },
+    };
+  };
 
   const LoginContainer = compose(
     connect(mapStateToProps, mapDispatchToProps)(LoginPart)
