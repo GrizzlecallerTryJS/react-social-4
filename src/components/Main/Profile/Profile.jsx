@@ -11,15 +11,21 @@ import {
 } from "../../../redux/Func/profileFunc/profileThunkCreators";
 import { withAuthRedirect } from "../../StandartComponent/hoc/withAuthRedirect";
 import { compose } from "redux";
+import {
+  defaultIdSelector,
+  profileStatusSelector,
+  userIdSelector,
+  userProfileSelector,
+} from "../../../redux/Selector/ProfileSelectors";
 
 let mapStateToProps = (state) => {
   return {
-    userProfile: state.profilePage.profileData,
-    defaultId: state.profilePage.defaultId,
-    userId: state.profilePage.userId,
-    profileStatus: state.profilePage.profileStatus,
+    userProfile: userProfileSelector(state),
+    defaultId: defaultIdSelector(state),
+    userId: userIdSelector(state),
+    profileStatus: profileStatusSelector(state),
     defaultProfileAvatar,
-    isAuth: state.authState.userData,
+    //isAuth: userDataSelector(state),
   };
 };
 

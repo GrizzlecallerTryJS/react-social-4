@@ -10,18 +10,28 @@ import {
 } from "../../../redux/Func/usersFunc/usersThunkCreators";
 import { withAuthRedirect } from "../../StandartComponent/hoc/withAuthRedirect";
 import { compose } from "redux";
+import {
+  currentPageSelector,
+  defaultPageSelector,
+  followIsFetchingSelector,
+  isFetchingSelector,
+  pagesCountSelector,
+  totalCountSelector,
+  usersOnPageCountSelector,
+  usersSelector,
+} from "../../../redux/Selector/UsersSelectors";
 
 let mapStateToProps = (state) => {
   return {
-    users: state.usersState.users,
-    totalCount: state.usersState.totalCount,
-    usersOnPageCount: state.usersState.usersOnPageCount,
-    pagesCount: state.usersState.pagesCount,
+    users: usersSelector(state),
+    totalCount: totalCountSelector(state),
+    usersOnPageCount: usersOnPageCountSelector(state),
+    pagesCount: pagesCountSelector(state),
     buttonName: "Follow",
-    currentPage: state.usersState.currentPage,
-    isFetching: state.usersState.isFetching,
-    defaultPage: state.usersState.defaultPage,
-    followIsFetching: state.usersState.followIsFetching,
+    currentPage: currentPageSelector(state),
+    isFetching: isFetchingSelector(state),
+    defaultPage: defaultPageSelector(state),
+    followIsFetching: followIsFetchingSelector(state),
   };
 };
 

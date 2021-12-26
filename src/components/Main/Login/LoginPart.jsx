@@ -3,9 +3,8 @@ import LoginForm from "../../../forms/LoginForm";
 import { Redirect } from "react-router-dom";
 
 let LoginPart = (props) => {
-  if (props.isAuth.isAuth) {
+  if (props.isAuth) {
     return <Redirect to={"/profile"} />;
-    //return <LoginForm {...props} />;
   } else {
     return (
       <div>
