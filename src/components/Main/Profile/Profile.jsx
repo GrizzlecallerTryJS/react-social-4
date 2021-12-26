@@ -8,7 +8,7 @@ import {
   getProfileTC,
   getUserStatusTC,
   setUserStatusTC,
-} from "../../../redux/profileFunc/profileThunkCreators";
+} from "../../../redux/Func/profileFunc/profileThunkCreators";
 import { withAuthRedirect } from "../../StandartComponent/hoc/withAuthRedirect";
 import { compose } from "redux";
 

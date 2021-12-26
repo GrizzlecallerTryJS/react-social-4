@@ -7,7 +7,7 @@ import {
   getUserByIdTC,
   getUsersTC,
   setFollowUserStatusTC,
-} from "../../../redux/usersFunc/usersThunkCreators";
+} from "../../../redux/Func/usersFunc/usersThunkCreators";
 import { withAuthRedirect } from "../../StandartComponent/hoc/withAuthRedirect";
 import { compose } from "redux";
 

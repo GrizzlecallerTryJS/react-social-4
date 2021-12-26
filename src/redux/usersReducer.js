@@ -5,7 +5,7 @@ import {
   _setIsFetching,
   _setTotalCount,
   _setUsers,
-} from "./usersFunc/usersFunc";
+} from "./Func/usersFunc/usersFunc";
 
 const FOLLOW_ACTION = "FOLLOW_ACTION";
 const SET_USERS = "SET_USERS";

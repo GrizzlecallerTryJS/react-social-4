@@ -1,4 +1,4 @@
-import { _setAuth } from "./authFunc/authFunc";
+import { _setAuth } from "./Func/authFunc/authFunc";
 
 const SET_USER_AUTH_DATA = "SET_USER_AUTH_DATA";
 

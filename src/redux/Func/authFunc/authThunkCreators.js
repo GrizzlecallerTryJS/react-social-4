@@ -1,5 +1,5 @@
-import { AuthAPI } from "../../api/api";
-import { setAuthAC } from "../authReducer";
+import { AuthAPI } from "../../../api/api";
+import { setAuthAC } from "../../authReducer";
 
 export const getAuthTC = () => (dispatch) => {
   return AuthAPI.getAuth().then((data) => {

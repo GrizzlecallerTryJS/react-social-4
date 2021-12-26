@@ -1,4 +1,4 @@
-import { _setInit } from "./appFunc/appFunc";
+import { _setInit } from "./Func/appFunc/appFunc";
 
 const SET_INIT = "SET_INIT";
 
