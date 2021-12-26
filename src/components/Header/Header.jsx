@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Header.module.css";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { getAuthTC } from "../../redux/authFunc/authThunkCreators";
+import { getAuthTC, logoutTC } from "../../redux/authFunc/authThunkCreators";
 import { compose } from "redux";
 
 let mapStateToProps = (state) => {
@@ -16,6 +16,9 @@ let mapDispatchToProps = (dispatch) => {
   return {
     getAuth: () => {
       dispatch(getAuthTC());
+    },
+    logout: () => {
+      dispatch(logoutTC());
     },
   };
 };
@@ -41,6 +44,7 @@ class HeaderContainer extends React.Component {
           {this.props.isAuth ? (
             <NavLink to={`/Profile/${this.props.userData.id}`}>
               {this.props.userData.login}
+              <button onClick={this.props.logout}>logout</button>
             </NavLink>
           ) : (
             <NavLink to={`/login`}>Login</NavLink>
