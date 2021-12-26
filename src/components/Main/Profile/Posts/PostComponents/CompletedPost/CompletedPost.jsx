@@ -4,7 +4,7 @@ const CompletedPost = (props) => {
   return (
     <div>
       {props.postData.map((data) => (
-        <div>{data.message}</div>
+        <div key={data.id}>{data.message}</div>
       ))}
     </div>
   );
