@@ -19,6 +19,7 @@ let mapStateToProps = (state) => {
     userId: state.profilePage.userId,
     profileStatus: state.profilePage.profileStatus,
     defaultProfileAvatar,
+    isAuth: state.authState.userData,
   };
 };
 

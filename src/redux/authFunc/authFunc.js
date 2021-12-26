@@ -1,4 +1,8 @@
 export const _setAuth = (stateCopy, userAuth) => {
   stateCopy.userData = { ...userAuth };
-  stateCopy.isAuth = true;
+  if (userAuth.isAuth === undefined) {
+    stateCopy.isAuth = true;
+  } else {
+    stateCopy.isAuth = userAuth.isAuth;
+  }
 };
