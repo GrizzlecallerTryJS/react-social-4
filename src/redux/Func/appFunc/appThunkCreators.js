@@ -1,4 +1,4 @@
-import { setInitAC } from "../appReducer";
+import { setInitAC } from "../../appReducer";
 import { getAuthTC } from "../authFunc/authThunkCreators";
 
 export const setInitTC = (initState) => {

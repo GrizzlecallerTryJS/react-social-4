@@ -2,13 +2,17 @@ import React from "react";
 import styles from "./Header.module.css";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { logoutTC } from "../../redux/authFunc/authThunkCreators";
+import { logoutTC } from "../../redux/Func/authFunc/authThunkCreators";
 import { compose } from "redux";
+import {
+  isAuthSelector,
+  userDataSelector,
+} from "../../redux/Selector/AuthSelectors";
 
 let mapStateToProps = (state) => {
   return {
-    userData: state.authState.userData,
-    isAuth: state.authState.isAuth,
+    userData: userDataSelector(state),
+    isAuth: isAuthSelector(state),
   };
 };
 

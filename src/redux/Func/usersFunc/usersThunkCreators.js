@@ -1,5 +1,5 @@
-import { UserAPI } from "../../api/api";
-import { setUserProfileAC } from "../profileReducer";
+import { UserAPI } from "../../../api/api";
+import { setUserProfileAC } from "../../profileReducer";
 import {
   followAC,
   setCurrentPageAC,
@@ -7,7 +7,7 @@ import {
   setIsFetchingAC,
   setTotalCountAC,
   setUsersAC,
-} from "../usersReducer";
+} from "../../usersReducer";
 
 export const getUsersTC = (usersOnPageCount, pageNumber) => {
   return (dispatch) => {

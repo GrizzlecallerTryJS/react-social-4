@@ -6,8 +6,8 @@ import Footer from "./components/Footer/Footer";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Navbar from "./components/Navbar/Navbar";
 import { connect } from "react-redux";
-import { getAuthTC } from "./redux/authFunc/authThunkCreators";
-import { setInitTC } from "./redux/appFunc/appThunkCreators";
+import { getAuthTC } from "./redux/Func/authFunc/authThunkCreators";
+import { setInitTC } from "./redux/Func/appFunc/appThunkCreators";
 import Preloader from "./components/StandartComponent/Preloader/Preloader";
 
 let mapStateToProps = (state) => {

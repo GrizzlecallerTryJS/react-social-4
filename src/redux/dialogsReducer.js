@@ -1,7 +1,7 @@
 import {
   _addMessageFunc,
   _currentNewMessageTextAreaValue,
-} from "./dialogFunc/dialogFunc";
+} from "./Func/dialogFunc/dialogFunc";
 
 const SEND_MESSAGE = "SEND_MESSAGE";
 const CURRENT_NEW_MESSAGE_TEXT = "CURRENT_NEW_MESSAGE_TEXT";

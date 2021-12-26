@@ -1,5 +1,5 @@
-import { ProfileAPI, UserAPI } from "../../api/api";
-import { setUserProfileAC, setUserStatusAC } from "../profileReducer";
+import { ProfileAPI, UserAPI } from "../../../api/api";
+import { setUserProfileAC, setUserStatusAC } from "../../profileReducer";
 
 export const getProfileTC = (userId) => {
   return (dispatch) => {

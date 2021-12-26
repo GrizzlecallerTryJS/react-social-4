@@ -4,7 +4,7 @@ import {
   _setUserId,
   _setUserProfile,
   _setUserStatus,
-} from "./profileFunc/profileFunc";
+} from "./Func/profileFunc/profileFunc";
 
 const ADD_POST = "ADD_POST";
 const CURRENT_NEW_POST_TEXT = "CURRENT_NEW_POST_TEXT";
