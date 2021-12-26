@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Header.module.css";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { getAuthTC, logoutTC } from "../../redux/authFunc/authThunkCreators";
+import { logoutTC } from "../../redux/authFunc/authThunkCreators";
 import { compose } from "redux";
 
 let mapStateToProps = (state) => {
@@ -14,9 +14,6 @@ let mapStateToProps = (state) => {
 
 let mapDispatchToProps = (dispatch) => {
   return {
-    getAuth: () => {
-      dispatch(getAuthTC());
-    },
     logout: () => {
       dispatch(logoutTC());
     },
@@ -24,12 +21,6 @@ let mapDispatchToProps = (dispatch) => {
 };
 
 class HeaderContainer extends React.Component {
-  componentDidMount() {
-    if (!this.props.isAuth) {
-      this.props.getAuth();
-    }
-  }
-
   render() {
     return (
       <div className={styles.header}>

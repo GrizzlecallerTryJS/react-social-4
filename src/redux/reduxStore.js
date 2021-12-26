@@ -5,6 +5,7 @@ import navbarReducer from "./navbarReducer";
 import usersReducer from "./usersReducer";
 import authReducer from "./authReducer";
 import thunkMiddleWare from "redux-thunk";
+import appReducer from "./appReducer";
 
 const reducers = combineReducers({
   profilePage: profileReducer,
@@ -12,6 +13,7 @@ const reducers = combineReducers({
   navbarState: navbarReducer,
   usersState: usersReducer,
   authState: authReducer,
+  appState: appReducer,
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
