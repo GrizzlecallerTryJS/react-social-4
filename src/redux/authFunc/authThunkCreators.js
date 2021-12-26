@@ -14,7 +14,15 @@ export const getAuthTC = () => {
 export const loginTC = (data) => (dispatch) => {
   AuthAPI.login(data).then((data) => {
     if (data.resultCode === 0) {
-      dispatch(setAuthAC(data.data));
+      dispatch(getAuthTC(data.data));
+    }
+  });
+};
+
+export const logoutTC = () => (dispatch) => {
+  AuthAPI.logout().then((data) => {
+    if (data.resultCode === 0) {
+      dispatch(setAuthAC());
     }
   });
 };
